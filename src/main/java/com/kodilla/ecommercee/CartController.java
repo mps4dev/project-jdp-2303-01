@@ -22,7 +22,7 @@ public class CartController {
         return ResponseEntity.ok(null);
     }
 
-    @GetMapping(value = "{itemId}")
+    @PutMapping(value = "{itemId}")
     public ResponseEntity<CartDTO> addItemToCart(@PathVariable Long itemId){
         return ResponseEntity.ok(null);
     }
