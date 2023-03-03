@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee;
 
+import com.kodilla.ecommercee.dto.CartDTO;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,18 +11,19 @@ import java.util.List;
 @RequestMapping("v1/carts")
 public class CartController {
 
+
     @PostMapping(value = "createCart", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createCart(@RequestBody CartDto cartDto){
+    public ResponseEntity<Void> createCart(@RequestBody CartDTO cartDto){
         return ResponseEntity.ok().build();
     }
 
     @GetMapping
-    public ResponseEntity<List<CartDto>> getItemsFromCart(){
+    public ResponseEntity<List<CartDTO>> getItemsFromCart(){
         return ResponseEntity.ok(null);
     }
 
     @GetMapping(value = "{itemId}")
-    public ResponseEntity<CartDto> addItemToCart(@PathVariable Long itemId){
+    public ResponseEntity<CartDTO> addItemToCart(@PathVariable Long itemId){
         return ResponseEntity.ok(null);
     }
 
