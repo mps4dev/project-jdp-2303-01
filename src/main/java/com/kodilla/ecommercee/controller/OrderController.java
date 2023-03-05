@@ -24,17 +24,17 @@ public class OrderController {
     }
 
     @DeleteMapping
-    public ResponseEntity<OrderDTO> deleteTask(@RequestBody OrderDTO orderDTO) {
+    public ResponseEntity<OrderDTO> deleteOrder(@RequestBody OrderDTO orderDTO) {
         return ResponseEntity.ok(null);
     }
 
     @PutMapping
-    public ResponseEntity<OrderDTO> updateTask(@RequestBody OrderDTO orderDTO) {
+    public ResponseEntity<OrderDTO> updateOrder(@RequestBody OrderDTO orderDTO) {
         return ResponseEntity.ok(null);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createTask(@RequestBody OrderDTO orderDTO) {
+    public ResponseEntity<Void> createOrder(@RequestBody OrderDTO orderDTO) {
         return ResponseEntity.ok().build();
     }
 }
