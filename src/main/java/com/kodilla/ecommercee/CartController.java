@@ -12,7 +12,7 @@ import java.util.List;
 public class CartController {
 
 
-    @PostMapping(value = "createCart", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public ResponseEntity<Void> createCart(@RequestBody CartDTO cartDto){
         return ResponseEntity.ok().build();
     }
@@ -28,12 +28,12 @@ public class CartController {
     }
 
     @DeleteMapping(value = "{itemId}")
-    public ResponseEntity<Void> deleteElement(@PathVariable Long itemId) {
+    public ResponseEntity<Void> deleteItemFromCart(@PathVariable Long itemId) {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(value = "createOrder", consumes = MediaType.APPLICATION_JSON_VALUE)
-        public ResponseEntity<Void> createOrder(){
+    @PostMapping(value = "createOrderFromCart", consumes = MediaType.APPLICATION_JSON_VALUE)
+        public ResponseEntity<Void> createOrderFromCart(){
             return ResponseEntity.ok().build();
         }
 }
