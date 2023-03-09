@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class Product {
     @Id
     @GeneratedValue
-    private long produtId;
+    private long productId;
 
     @ManyToOne
     @NotNull
