@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.kodilla.ecommercee.domain.OrderDTO;
+import com.kodilla.ecommercee.dto.OrderDTO;
 
 import java.util.*;
 
