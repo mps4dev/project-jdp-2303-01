@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee;
+package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.dto.GroupDTO;
 import org.springframework.http.MediaType;
