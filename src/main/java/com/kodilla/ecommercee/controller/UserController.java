@@ -1,7 +1,7 @@
 package com.kodilla.ecommercee.controller;
 
-import com.kodilla.ecommercee.dto.UserDTO;
-import com.kodilla.ecommercee.dto.UserKeyDTO;
+import com.kodilla.ecommercee.domain.dto.UserDTO;
+import com.kodilla.ecommercee.domain.dto.UserKeyDTO;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

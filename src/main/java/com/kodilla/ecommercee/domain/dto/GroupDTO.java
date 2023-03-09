@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee.dto;
+package com.kodilla.ecommercee.domain.dto;
 
 public class GroupDTO {
 
