@@ -29,6 +29,5 @@ public class GroupController {
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<GroupDTO>updateGroup(@RequestBody GroupDTO groupDto){
         return ResponseEntity.ok(null);
-
     }
 }
