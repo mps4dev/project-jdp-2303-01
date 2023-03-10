@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee;
+package com.kodilla.ecommercee.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.util.List;
 public class Group {
     @Id
     @GeneratedValue
-    private long groupId;
+    private Long groupId;
 
     @NotNull
     @Column
