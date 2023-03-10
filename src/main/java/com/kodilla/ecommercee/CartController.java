@@ -1,6 +1,7 @@
 package com.kodilla.ecommercee;
 
 import com.kodilla.ecommercee.dto.CartDTO;
+import com.kodilla.ecommercee.dto.OrderDTO;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,23 +18,23 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
-    public ResponseEntity<List<CartDTO>> getItemsFromCart(){
+    @GetMapping(value = "{cartId}")
+    public ResponseEntity<List<CartDTO>> getCartById(@PathVariable Long cartId){
         return ResponseEntity.ok(null);
     }
 
-    @PutMapping(value = "{itemId}")
-    public ResponseEntity<CartDTO> addItemToCart(@PathVariable Long itemId){
+    @PutMapping
+    public ResponseEntity<CartDTO> updateCart(@RequestBody CartDTO cartDto){
         return ResponseEntity.ok(null);
     }
 
-    @DeleteMapping(value = "{itemId}")
-    public ResponseEntity<Void> deleteItemFromCart(@PathVariable Long itemId) {
+    @DeleteMapping(value = "/{cartId}")
+    public ResponseEntity<Void> deleteItemFromCart(@PathVariable Long cartId, @RequestParam Long productId) {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(value = "createOrderFromCart", consumes = MediaType.APPLICATION_JSON_VALUE)
-        public ResponseEntity<Void> createOrderFromCart(){
-            return ResponseEntity.ok().build();
-        }
+    @PostMapping(value = "/{cartId}/order")
+    public ResponseEntity<Void> createOrderFromCart(@PathVariable Long cartId, @RequestBody OrderDTO orderDTO){
+        return ResponseEntity.ok().build();
+    }
 }
