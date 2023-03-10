@@ -18,7 +18,7 @@ public class CartController {
     }
 
     @GetMapping(value = "{cartId}")
-    public ResponseEntity<List<CartDTO>> getCartById(@PathVariable Long cartId){
+    public ResponseEntity<CartDTO> getCartById(@PathVariable Long cartId){
         return ResponseEntity.ok(null);
     }
 
