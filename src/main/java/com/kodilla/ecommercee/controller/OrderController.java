@@ -9,7 +9,7 @@ import com.kodilla.ecommercee.dto.OrderDTO;
 import java.util.*;
 
 @RestController
-@RequestMapping("/v1/order")
+@RequestMapping("/v1/orders")
 @RequiredArgsConstructor
 public class OrderController {
 
@@ -19,7 +19,7 @@ public class OrderController {
     @GetMapping(value = "{orderId}")
     public ResponseEntity<OrderDTO> getOrder(@PathVariable Long orderId) { return ResponseEntity.ok(null); }
 
-    @DeleteMapping
+    @DeleteMapping(value = "{orderId}")
     public ResponseEntity<Void> deleteOrder(@RequestBody OrderDTO orderDTO) { return ResponseEntity.ok(null); }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
