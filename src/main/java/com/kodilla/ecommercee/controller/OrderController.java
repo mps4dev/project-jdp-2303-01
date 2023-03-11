@@ -9,7 +9,7 @@ import com.kodilla.ecommercee.dto.OrderDTO;
 import java.util.*;
 
 @RestController
-@RequestMapping("/v1/tasks")
+@RequestMapping("/v1/orders")
 @RequiredArgsConstructor
 public class OrderController {
 
@@ -24,11 +24,11 @@ public class OrderController {
     }
 
     @DeleteMapping
-    public ResponseEntity<OrderDTO> deleteOrder(@RequestBody OrderDTO orderDTO) {
+    public ResponseEntity<Void> deleteOrder(@RequestBody OrderDTO orderDTO) {
         return ResponseEntity.ok(null);
     }
 
-    @PutMapping
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderDTO> updateOrder(@RequestBody OrderDTO orderDTO) {
         return ResponseEntity.ok(null);
     }
