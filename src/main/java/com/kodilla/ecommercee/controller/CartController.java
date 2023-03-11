@@ -1,8 +1,5 @@
 package com.kodilla.ecommercee.controller;
 
-<<<<<<< HEAD
-public class CartController {
-=======
 import com.kodilla.ecommercee.dto.CartDTO;
 import com.kodilla.ecommercee.dto.OrderDTO;
 import org.springframework.http.ResponseEntity;
@@ -39,5 +36,4 @@ public class CartController {
     public ResponseEntity<Void> createOrderFromCart(@PathVariable Long cartId, @RequestBody OrderDTO orderDTO){
         return ResponseEntity.ok().build();
     }
->>>>>>> 878de40a5bec6fe5f6598ad545bd3d29f2754fdb
 }

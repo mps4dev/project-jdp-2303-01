@@ -11,6 +11,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/v1/orders")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class OrderController {
 
     @GetMapping

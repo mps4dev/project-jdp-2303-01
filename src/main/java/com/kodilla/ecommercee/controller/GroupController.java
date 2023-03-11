@@ -13,26 +13,23 @@ import java.util.List;
 @CrossOrigin("*")
 public class GroupController {
     @GetMapping()
-    public ResponseEntity<List<GroupDTO>>getGroups(){
+    public ResponseEntity<List<GroupDTO>> getGroups() {
         return ResponseEntity.ok(Collections.emptyList());
     }
+
     @GetMapping("{groupId}")
     public ResponseEntity<GroupDTO> getGroupById(@PathVariable Long groupId) {
         return ResponseEntity.ok(null);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void>createGroup(@RequestBody GroupDTO groupDto){
+    public ResponseEntity<Void> createGroup(@RequestBody GroupDTO groupDto) {
         return ResponseEntity.ok().build();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GroupDTO>updateGroup(@RequestBody GroupDTO groupDto){
+    public ResponseEntity<GroupDTO> updateGroup(@RequestBody GroupDTO groupDto) {
         return ResponseEntity.ok(null);
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 878de40a5bec6fe5f6598ad545bd3d29f2754fdb
