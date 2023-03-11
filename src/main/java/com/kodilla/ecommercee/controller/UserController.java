@@ -1,7 +1,12 @@
 package com.kodilla.ecommercee.controller;
 
+<<<<<<< HEAD
 import com.kodilla.ecommercee.dto.UserDTO;
 import com.kodilla.ecommercee.dto.UserKeyDTO;
+=======
+import com.kodilla.ecommercee.domain.dto.UserDTO;
+import com.kodilla.ecommercee.domain.dto.UserKeyDTO;
+>>>>>>> 878de40a5bec6fe5f6598ad545bd3d29f2754fdb
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,4 +29,8 @@ public class UserController {
     public ResponseEntity<UserKeyDTO> generateKey() {
         return ResponseEntity.ok(null);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 878de40a5bec6fe5f6598ad545bd3d29f2754fdb

@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
-import com.kodilla.ecommercee.dto.GroupDTO;
+import com.kodilla.ecommercee.domain.dto.GroupDTO;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,4 +31,8 @@ public class GroupController {
         return ResponseEntity.ok(null);
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 878de40a5bec6fe5f6598ad545bd3d29f2754fdb
