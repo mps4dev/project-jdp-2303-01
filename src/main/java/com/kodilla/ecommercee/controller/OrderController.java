@@ -9,24 +9,18 @@ import com.kodilla.ecommercee.dto.OrderDTO;
 import java.util.*;
 
 @RestController
-@RequestMapping("/v1/orders")
+@RequestMapping("/v1/order")
 @RequiredArgsConstructor
 public class OrderController {
 
     @GetMapping
-    public ResponseEntity<List<OrderDTO>> getOrders() {
-        return ResponseEntity.ok(Collections.emptyList());
-    }
+    public ResponseEntity<List<OrderDTO>> getOrders() { return ResponseEntity.ok(Collections.emptyList()); }
 
     @GetMapping(value = "{orderId}")
-    public ResponseEntity<OrderDTO> getOrder(@PathVariable Long orderId) {
-        return ResponseEntity.ok(null);
-    }
+    public ResponseEntity<OrderDTO> getOrder(@PathVariable Long orderId) { return ResponseEntity.ok(null); }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteOrder(@RequestBody OrderDTO orderDTO) {
-        return ResponseEntity.ok(null);
-    }
+    public ResponseEntity<Void> deleteOrder(@RequestBody OrderDTO orderDTO) { return ResponseEntity.ok(null); }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderDTO> updateOrder(@RequestBody OrderDTO orderDTO) {
