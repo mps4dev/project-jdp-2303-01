@@ -1,11 +1,9 @@
 package com.kodilla.ecommercee.controller;
 
-import com.kodilla.ecommercee.dto.CartDTO;
-import com.kodilla.ecommercee.dto.OrderDTO;
+import com.kodilla.ecommercee.domain.dto.CartDTO;
+import com.kodilla.ecommercee.domain.dto.OrderDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("v1/carts")
