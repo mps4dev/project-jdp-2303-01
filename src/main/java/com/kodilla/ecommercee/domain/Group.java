@@ -18,7 +18,7 @@ public class Group {
     private Long groupId;
 
     @NotNull
-    @Column
+    @Column(name = "name",unique = true)
     private String name;
 
     public Group(String name, List<Product> products) {

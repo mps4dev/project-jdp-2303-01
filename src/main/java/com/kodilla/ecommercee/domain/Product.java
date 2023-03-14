@@ -13,9 +13,9 @@ import javax.validation.constraints.NotNull;
 public class Product {
     @Id
     @GeneratedValue
-    private Long productId;
+    private long productId;
 
-    @Column
+    @Column(name = "name",unique = true)
     private String name;
 
     @Column(name="price")
