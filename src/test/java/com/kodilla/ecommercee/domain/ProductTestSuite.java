@@ -1,16 +1,18 @@
 package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.repository.GroupRepository;
+import com.kodilla.ecommercee.repository.ProductRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 @SpringBootTest
 public class ProductTestSuite {
-//    @Autowired
-//    ProductRepository productRepository;
+    @Autowired
+    ProductRepository productRepository;
 
     @Autowired
     GroupRepository groupRepository;
@@ -28,25 +30,26 @@ public class ProductTestSuite {
 
     public void deleteTestData() {
         try {
-//            productRepository.delete(product);
-//            productRepository.delete(product2);
+            productRepository.delete(product1);
+            productRepository.delete(product2);
             groupRepository.delete(group1);
         } catch (Exception e) {
             System.out.println("Objects were not deleted! Error: " + e);
         }
     }
 
-    @Test
-    public void testSaveProducts() {
-// Given
-        createTestData();
-// When
-        groupRepository.save(group1);
-
-// Then
-
-
-// CleanUp
-        deleteTestData();
-    }
+//    @Test
+//    public void testSaveProducts() {
+//// Given
+//        createTestData();
+//// When
+//        groupRepository.save(group1);
+//        productRepository.save(product1);
+//        productRepository.save(product2);
+//// Then
+//assertNotEquals(0,productRepository.count());
+//
+//// CleanUp
+//        deleteTestData();
+//    }
 }
