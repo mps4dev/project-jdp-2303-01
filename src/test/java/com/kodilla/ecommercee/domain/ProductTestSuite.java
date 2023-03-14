@@ -9,8 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,9 +27,9 @@ public class ProductTestSuite {
     private Product product2;
 
     public void createTestData() {
-        group1 = new Group("Electronics", new ArrayList<>());
-        product1 = new Product("Laptop", 3000, 10, group1);
-        product2 = new Product("MacBook", 6000, 10, group1);
+        group1 = new Group(0,"Electronics", new ArrayList<>());
+        product1 = new Product(0,"Dell", 3000, 10, group1);
+        product2 = new Product(0,"MacBook", 6000, 10, group1);
         group1.getProducts().add(product1);
         group1.getProducts().add(product2);
     }
@@ -54,6 +56,56 @@ public class ProductTestSuite {
         assertNotEquals(0, groupRepository.count());
         assertNotEquals(0, productRepository.count());
 // CleanUp
+        deleteTestData();
+    }
+    @Test
+    public void testUpdateData() {
+// Given
+        createTestData();
+// When
+        groupRepository.save(group1);
+        productRepository.save(product1);
+        productRepository.save(product2);
+        String updatedData = "MacBook M2";
+        product1 = new Product(1,updatedData, product1.getPrice(), product1.getQuantity(), product1.getGroup());
+        Product updatedProduct = productRepository.save(product1);
+// Then
+        assertEquals(updatedData, updatedProduct.getName());
+// CleanUp
+        deleteTestData();
+    }
+    @Test
+    public void testProductRepositoryFindAll() {
+        //Given
+        createTestData();
+
+        //When
+        groupRepository.save(group1);
+        productRepository.save(product1);
+        productRepository.save(product2);
+        List<Product> retrievedProductList = productRepository.findAll();
+
+        //Then
+        assertEquals(2, retrievedProductList.size());
+
+        //CleanUp
+        deleteTestData();
+    }
+    @Test
+    public void testProductRepositoryGet() {
+        //Given
+        createTestData();
+
+        //When
+        groupRepository.save(group1);
+        productRepository.save(product1);
+        productRepository.save(product2);
+        Optional<Product> retrievedProduct = productRepository.findById(product1.getProductId());
+
+        //Then
+        assertTrue(retrievedProduct.isPresent());
+        assertEquals("Dell", retrievedProduct.orElse(new Product()).getName());
+        //CleanUp
         deleteTestData();
     }
 }
