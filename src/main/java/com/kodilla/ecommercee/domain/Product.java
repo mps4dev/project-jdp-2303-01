@@ -13,15 +13,15 @@ import javax.validation.constraints.NotNull;
 public class Product {
     @Id
     @GeneratedValue
-    private long productId;
+    private Long productId;
 
-    @Column(name = "name",unique = true)
+    @Column(name = "name", unique = true)
     private String name;
 
-    @Column(name="price")
+    @Column(name = "price")
     private double price;
 
-    @Column(name="quantity")
+    @Column(name = "quantity")
     private int quantity;
 
     @ManyToOne

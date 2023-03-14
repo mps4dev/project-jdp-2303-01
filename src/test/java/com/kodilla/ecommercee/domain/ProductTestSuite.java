@@ -2,13 +2,17 @@ package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.repository.GroupRepository;
 import com.kodilla.ecommercee.repository.ProductRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertNotEquals;
+
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProductTestSuite {
     @Autowired
@@ -21,9 +25,9 @@ public class ProductTestSuite {
     private Product product2;
 
     public void createTestData() {
-        Group group1 = new Group(0L, "Electronics", new ArrayList<>());
-        Product product1 = new Product(0L, "Laptop", 3000, 10, group1);
-        Product product2 = new Product(0L, "MacBook", 6000, 10, group1);
+        group1 = new Group("Electronics", new ArrayList<>());
+        product1 = new Product("Laptop", 3000, 10, group1);
+        product2 = new Product("MacBook", 6000, 10, group1);
         group1.getProducts().add(product1);
         group1.getProducts().add(product2);
     }
@@ -38,18 +42,18 @@ public class ProductTestSuite {
         }
     }
 
-//    @Test
-//    public void testSaveProducts() {
-//// Given
-//        createTestData();
-//// When
-//        groupRepository.save(group1);
-//        productRepository.save(product1);
-//        productRepository.save(product2);
-//// Then
-//assertNotEquals(0,productRepository.count());
-//
-//// CleanUp
-//        deleteTestData();
-//    }
+    @Test
+    public void testSaveProducts() {
+// Given
+        createTestData();
+// When
+        groupRepository.save(group1);
+        productRepository.save(product1);
+        productRepository.save(product2);
+// Then
+        assertNotEquals(0, groupRepository.count());
+        assertNotEquals(0, productRepository.count());
+// CleanUp
+        deleteTestData();
+    }
 }

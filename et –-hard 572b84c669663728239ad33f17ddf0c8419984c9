@@ -1,0 +1,273 @@
+[33mcommit 572b84c669663728239ad33f17ddf0c8419984c9[m[33m ([m[1;36mHEAD -> [m[1;32mJDP230301-17[m[33m)[m
+Author: Paweł Staszewski <p.staszewski1@gmail.com>
+Date:   Tue Mar 14 14:22:53 2023 +0100
+
+    first commit
+
+[33mcommit 16b2a476a081bbe877d96ac850f2ff115762a2f4[m
+Author: Paweł Staszewski <p.staszewski1@gmail.com>
+Date:   Tue Mar 14 14:09:05 2023 +0100
+
+    first commit
+
+[33mcommit 4e8d3c4066fad9d507c3ba0a013dfccdeaa84c01[m
+Author: Paweł Staszewski <p.staszewski1@gmail.com>
+Date:   Tue Mar 14 14:08:38 2023 +0100
+
+    first commit
+
+[33mcommit 20e1b30f478b1b396259f519e0109bd4c8f10a95[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 84f6665 1fbba58
+Author: domKul <114921142+domKul@users.noreply.github.com>
+Date:   Tue Mar 14 09:41:49 2023 +0100
+
+    Merge pull request #14 from mps4dev/JDP230301-27
+    
+    JDP230301-27
+
+[33mcommit 1fbba58e8946ddf59d24f3a5bdbb95eea9e78737[m[33m ([m[1;31morigin/JDP230301-27[m[33m)[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Tue Mar 14 09:35:40 2023 +0100
+
+    removing second dto package
+
+[33mcommit 84f6665ebf314de107362ca56069a243ca6ee1c6[m
+Author: szmuraj <114912712+szmuraj@users.noreply.github.com>
+Date:   Tue Mar 14 09:13:54 2023 +0100
+
+    JDP230301-4 (#6)
+    
+    * new branch
+    
+    * packages and orderDTO
+    
+    * Wstępna implementacja endpointów
+    
+    * JDP230301-4 wersja po poprawkach
+    
+    * wersja poprawiona, delete po id
+    
+    * packages and orderDTO
+    
+    * Wstępna implementacja endpointów
+    
+    * JDP230301-4 wersja po poprawkach
+    
+    * wersja poprawiona, delete po id
+    
+    * poprawiono błędy
+    
+    * orders
+    
+    * usuwanie dodatków
+    
+    * ups
+    
+    * path
+
+[33mcommit 0642be51ad85cb9dbe31c57a342a0d3a027cf78f[m
+Merge: b9b9a3a 06df46b
+Author: szmuraj <114912712+szmuraj@users.noreply.github.com>
+Date:   Tue Mar 14 08:11:13 2023 +0100
+
+    Merge pull request #13 from mps4dev/JDP230301-12
+    
+    JDP230301-12 Encja Product - implementacja + repository
+
+[33mcommit b9b9a3af0eb3334a9060ff8cb4fc5ace75b95b8a[m
+Author: Staszewskip <114756001+Staszewskip@users.noreply.github.com>
+Date:   Mon Mar 13 13:12:08 2023 +0100
+
+    JDP230301-14: Encja Cart - implementacja (#11)
+    
+    JDP230301-14: Encja Cart - implementacja
+
+[33mcommit 06df46b84cbbaacd5171c93a35732ea8c9f4f01c[m[33m ([m[1;31morigin/JDP230301-12[m[33m)[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Mon Mar 13 11:13:25 2023 +0100
+
+    adding repository for Product entity
+
+[33mcommit 0ff8b0b83c56a1b542c1f1fcc0ea7a3fbb4b6dc9[m
+Merge: 878de40 13b3ded
+Author: domKul <114921142+domKul@users.noreply.github.com>
+Date:   Mon Mar 13 10:44:35 2023 +0100
+
+    Merge pull request #12 from mps4dev/JDP230301-12
+    
+    JDP230301-12 - Encja Product - implementacja
+
+[33mcommit 13b3ded620abc23f53c02fff48f725f7096bc3e4[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Sun Mar 12 16:22:20 2023 +0100
+
+    adding more columns to Product entity class
+
+[33mcommit 878de40a5bec6fe5f6598ad545bd3d29f2754fdb[m
+Author: jakubantonik <114752695+jakubantonik@users.noreply.github.com>
+Date:   Fri Mar 10 21:44:02 2023 +0100
+
+    JDP230301-3 (#7)
+    
+    JDP230301-3: CartController - wstępna implementacja endpointów
+    Co-authored-by: Jakub Antonik <https://github.com/jakubantonik>
+
+[33mcommit 6ddef5552a7a24f7b705e6b87c1f1f26efea3110[m
+Author: Staszewskip <114756001+Staszewskip@users.noreply.github.com>
+Date:   Fri Mar 10 15:29:10 2023 +0100
+
+    JDP230301-13: Encja Group - implementacja (#8)
+    
+    JDP230301-13: Encja Group - implementacja
+
+[33mcommit f787760b4baf034ac613a40e09c491e794fa9837[m
+Author: Staszewskip <114756001+Staszewskip@users.noreply.github.com>
+Date:   Fri Mar 10 14:59:45 2023 +0100
+
+    JDP230301-26: Uporządkowanie pakietów (#9)
+    
+    JDP230301-26: Uporządkowanie pakietów
+
+[33mcommit b2622093531ac6268a5b3f460b3500abdac2e0c8[m
+Merge: 9f07cee 80df4ea
+Author: Staszewskip <114756001+Staszewskip@users.noreply.github.com>
+Date:   Tue Mar 7 21:50:24 2023 +0100
+
+    Merge pull request #2 from mps4dev/JDP230301-5
+    
+    Jdp230301-5
+
+[33mcommit 80df4eaa08b2049935a56e8a26c96091aae5e439[m[33m ([m[1;31morigin/JDP230301-5[m[33m, [m[1;32mJDP230301-5[m[33m)[m
+Author: Paweł Staszewski <p.staszewski1@gmail.com>
+Date:   Tue Mar 7 21:35:09 2023 +0100
+
+    JDP230301-5 v7
+
+[33mcommit 4c5d3dca093782c037d62625db8b9bae674fb373[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Mon Mar 6 11:53:11 2023 +0100
+
+    JDP230301-5 poprawki Dominika
+
+[33mcommit 966227b9db290df8335c14d59cf931004847bc54[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Mon Mar 6 11:10:32 2023 +0100
+
+    JDP230301-5 v5
+
+[33mcommit 8d61db4821e166d8d388eb28e9d664f81622a9a4[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Sun Mar 5 09:40:24 2023 +0100
+
+    JDP230301-5 v4
+
+[33mcommit ee32063f4c324141ee60571551dfb9857b3ddf23[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Wed Mar 1 11:56:45 2023 +0100
+
+    JDP230301-5 v3
+
+[33mcommit 486c993f66aa381135749603157cc30035262b57[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Thu Mar 2 09:59:29 2023 +0100
+
+    improvement of GroupController
+
+[33mcommit 56448edbdbb99ad3f8034f41930c33f1714180ef[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Wed Mar 1 23:01:13 2023 +0100
+
+    adding endpoints of GroupController
+
+[33mcommit 0f633a6e0f29708976244a472227d8ed81e17a5a[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Thu Mar 2 10:18:56 2023 +0100
+
+    JDP230301-5 v2
+
+[33mcommit 05af63701da8f6a194149d46f36370cd2a605d10[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Wed Mar 1 21:50:30 2023 +0100
+
+    JDP230301-5
+
+[33mcommit 0fd50ff5ddc21add697f34a3ec2014950e9cc139[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Wed Mar 1 11:56:45 2023 +0100
+
+    JDP230301-1
+
+[33mcommit 9f07ceeeb5ab9caaa32ad83b351084a131dd8c30[m
+Merge: c4d5e00 6b8c398
+Author: Staszewskip <114756001+Staszewskip@users.noreply.github.com>
+Date:   Mon Mar 6 10:27:05 2023 +0100
+
+    Merge pull request #1 from mps4dev/JDP230301-1
+    
+    JDP230301-1
+
+[33mcommit 6b8c39848774e77368ca2b3a8b7f1aea7d92d33c[m
+Author: Pawel Staszewski <p.staszewski1@gmail.com>
+Date:   Fri Mar 3 23:52:16 2023 +0100
+
+    JDP230301-1 v10
+
+[33mcommit c4d5e009e0bba31c20e110e0c6c1473e2e474714[m
+Merge: 857c11b a911b8a
+Author: domKul <114921142+domKul@users.noreply.github.com>
+Date:   Fri Mar 3 21:45:41 2023 +0100
+
+    Merge pull request #4 from mps4dev/JDP230301-2
+    
+    JDP230301-2
+
+[33mcommit a911b8adb821f870e839b93a53d17e69b2b27a74[m[33m ([m[1;31morigin/JDP230301-2[m[33m)[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Fri Mar 3 19:39:50 2023 +0100
+
+    improving build.gradle
+
+[33mcommit 949e6db48777bc9ef99ee7aad2ac9f1092c9d3f6[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Fri Mar 3 16:12:33 2023 +0100
+
+    cleaningUp
+
+[33mcommit d73f8d5bd5eb463cf569c8f0b7d43959fd5602d4[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Fri Mar 3 16:10:12 2023 +0100
+
+    Dto to DTO
+
+[33mcommit afbd852614c735aa950658e42bdc8dd32bcc784a[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Fri Mar 3 12:01:43 2023 +0100
+
+    adding lombok 1.18.26
+
+[33mcommit 3b84cab27f1dc7401d0c1560303155c474727640[m
+Merge: b3e1cd7 1daab6e
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Thu Mar 2 11:28:03 2023 +0100
+
+    JDP230301-2 rebase
+
+[33mcommit b3e1cd7e73022637e3e172e6c734e05865e53fdc[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Thu Mar 2 10:06:28 2023 +0100
+
+    changing @GetMapping()
+
+[33mcommit ce2ea401b7055b590b63e57a693f34247a6c2ba7[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Thu Mar 2 09:59:29 2023 +0100
+
+    improvement of GroupController
+
+[33mcommit bab52d0abe2a9de2ed9ace9781390552338e1e7b[m
+Author: Dominik Kulpowicz <dominik.kulpowicz@gmail.com>
+Date:   Wed Mar 1 23:01:13 2023 +0100
+
+    adding endpoints of GroupController
+
+[33mcommit 1daab6e001a
