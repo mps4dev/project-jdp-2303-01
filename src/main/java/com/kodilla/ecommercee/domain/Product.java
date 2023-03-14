@@ -17,6 +17,15 @@ public class Product {
     @GeneratedValue
     private Long productId;
 
+    @Column
+    private String name;
+
+    @Column(name="price")
+    private double price;
+
+    @Column(name="quantity")
+    private int quantity;
+
     @ManyToOne
     @NotNull
     @JoinColumn(name = "group_id")
