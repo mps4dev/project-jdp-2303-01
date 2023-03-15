@@ -17,7 +17,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long productId;
 
-    @Column( unique = true)
+    @Column(unique = true)
     private String name;
 
     private double price;
