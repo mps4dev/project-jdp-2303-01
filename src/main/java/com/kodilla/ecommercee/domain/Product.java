@@ -8,14 +8,13 @@ import javax.validation.constraints.NotNull;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long productId;
+    @GeneratedValue
+    private Long productId;
 
     @Column(unique = true)
     private String name;
@@ -28,4 +27,11 @@ public class Product {
     @NotNull
     @JoinColumn(name = "group_id")
     private Group group;
+
+    public Product(String name, double price, int quantity, Group group) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.group = group;
+    }
 }
