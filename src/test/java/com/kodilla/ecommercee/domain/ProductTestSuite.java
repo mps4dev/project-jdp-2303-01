@@ -7,9 +7,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -37,24 +39,24 @@ public class ProductTestSuite {
 // Given
         createTestData();
 // When
-        groupRepository.save(group1);
-        productRepository.save(product1);
-        productRepository.save(product2);
+        Group saveGroup1 = groupRepository.save(group1);
+        saveGroup1.getProducts().add(product1);
+        saveGroup1.getProducts().add(product2);
 // Then
-        assertNotEquals(0, groupRepository.count());
-        assertNotEquals(0, productRepository.count());
+        assertEquals(1, groupRepository.count());
+        assertNotEquals(2, productRepository.count());
 // CleanUp
-        productRepository.deleteAll();
+        groupRepository.deleteAll();
     }
 
     @Test
     public void testUpdateData() {
 // Given
-          createTestData();
+        createTestData();
 // When
-        groupRepository.save(group1);
-        productRepository.save(product1);
-        productRepository.save(product2);
+        Group saveGroup1 = groupRepository.save(group1);
+        saveGroup1.getProducts().add(product1);
+        saveGroup1.getProducts().add(product2);
         String updatedData = "MacBook M2";
         product1 = new Product(updatedData, product1.getPrice(), product1.getQuantity(), product1.getGroup());
         Product updatedProduct = productRepository.save(product1);
@@ -63,16 +65,16 @@ public class ProductTestSuite {
         assertEquals(updatedData, updatedProduct.getName());
 
 // CleanUp
-        productRepository.deleteAll();
+        groupRepository.deleteAll();
     }
 
     @Test
-
     public void testProductRepositoryFindAll() {
 
         //Given
         createTestData();
         //When
+
         groupRepository.save(group1);
         productRepository.save(product1);
         productRepository.save(product2);
@@ -80,8 +82,10 @@ public class ProductTestSuite {
 
         //Then
         assertEquals(2, retrievedProductList.size());
+
         //CleanUp
         productRepository.deleteAll();
+        groupRepository.deleteAll();
     }
 
     @Test
@@ -89,18 +93,20 @@ public class ProductTestSuite {
 
         //Given
         createTestData();
-
         //When
-        groupRepository.save(group1);
+        Group saveGroup1 = groupRepository.save(group1);
         productRepository.save(product1);
         productRepository.save(product2);
-        Optional<Product> retrievedProduct = productRepository.findById(product1.getProductId());
+        saveGroup1.getProducts().add(product1);
+        saveGroup1.getProducts().add(product2);
+        Optional<Product> retrieveById = productRepository.findById(product1.getProductId());
 
         //Then
-        assertTrue(retrievedProduct.isPresent());
-        assertEquals("Dell", retrievedProduct.orElse(new Product()).getName());
+        assertTrue(retrieveById.isPresent());
+        assertEquals("Dell", retrieveById.orElse(new Product()).getName());
 
         //CleanUp
         productRepository.deleteAll();
-       }
+        groupRepository.deleteAll();
+    }
 }
