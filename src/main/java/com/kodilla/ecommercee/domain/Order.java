@@ -37,7 +37,7 @@ public class Order {
     @Column(name = "orderAmountPaid")
     private int orderAmountPaid;
 
-    public Order(LocalDateTime orderDate, LocalDateTime orderPaymentDate, int orderValue, int orderAmountPaid) {
+    public Order(List<Cart> carts, LocalDateTime orderDate, LocalDateTime orderPaymentDate, int orderValue, int orderAmountPaid) {
         this.carts = carts;
         this.orderDate = ZonedDateTime.now().toLocalDateTime();
         this.orderPaymentDate = orderPaymentDate;
