@@ -4,15 +4,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "products")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue
@@ -26,16 +25,15 @@ public class Order {
     private List<Cart> carts = new ArrayList<>();
 
     @Column(name = "orderDate")
-    private SimpleDateFormat orderDate;
+    private LocalDateTime orderDate;
 
     @Column(name = "orderPaymentDate")
-    private SimpleDateFormat orderPaymentDate;
+    private LocalDateTime orderPaymentDate;
 
     @Column(name = "orderValue")
     private int orderValue;
 
     @Column(name = "orderAmountPaid")
     private int orderAmountPaid;
-
 
 }

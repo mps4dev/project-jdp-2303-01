@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface OrderRepository extends CrudRepository<Order,Long> {
     List<Order>findAll();
     Optional<Order> findById(Long id);
-    Order save(Order product);
-    void delete(Order product);
+    Order save(Order order);
+    void delete(Order order);
 }
