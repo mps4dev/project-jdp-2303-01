@@ -35,25 +35,32 @@ public class ProductTestSuite {
     }
 
     @Test
+
     public void testSaveProducts() {
-// Given
+
+        // Given
         createTestData();
-// When
+
+        // When
         Group saveGroup1 = groupRepository.save(group1);
         saveGroup1.getProducts().add(product1);
         saveGroup1.getProducts().add(product2);
-// Then
+
+        // Then
         assertEquals(1, groupRepository.count());
         assertNotEquals(2, productRepository.count());
-// CleanUp
+
+        // CleanUp
         groupRepository.deleteAll();
     }
 
     @Test
     public void testUpdateData() {
-// Given
+
+        // Given
         createTestData();
-// When
+
+        // When
         Group saveGroup1 = groupRepository.save(group1);
         saveGroup1.getProducts().add(product1);
         saveGroup1.getProducts().add(product2);
@@ -61,10 +68,10 @@ public class ProductTestSuite {
         product1 = new Product(updatedData, product1.getPrice(), product1.getQuantity(), product1.getGroup());
         Product updatedProduct = productRepository.save(product1);
 
-// Then
+        // Then
         assertEquals(updatedData, updatedProduct.getName());
 
-// CleanUp
+        // CleanUp
         groupRepository.deleteAll();
     }
 
