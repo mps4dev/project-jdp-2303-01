@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,4 +37,11 @@ public class Order {
     @Column(name = "orderAmountPaid")
     private int orderAmountPaid;
 
+    public Order(LocalDateTime orderDate, LocalDateTime orderPaymentDate, int orderValue, int orderAmountPaid) {
+        this.carts = carts;
+        this.orderDate = ZonedDateTime.now().toLocalDateTime();
+        this.orderPaymentDate = orderPaymentDate;
+        this.orderValue = orderValue;
+        this.orderAmountPaid = orderAmountPaid;
+    }
 }
