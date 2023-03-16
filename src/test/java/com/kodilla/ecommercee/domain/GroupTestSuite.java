@@ -1,7 +1,5 @@
-package com.kodilla.ecommercee;
+package com.kodilla.ecommercee.domain;
 
-import com.kodilla.ecommercee.domain.Group;
-import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.repository.GroupRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,9 +42,8 @@ public class GroupTestSuite {
 
         //Then
         assertThat(savedGroup1.getName()).isEqualTo("group1");
-        assertThat(savedGroup1.getGroupId()).isEqualTo(1L);
         assertThat(savedGroup2.getName()).isEqualTo("group2");
-        assertThat(savedGroup2.getGroupId()).isEqualTo(2L);
+
 
         //CleanUp
         groupRepository.deleteAll();

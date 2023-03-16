@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+
 @NoArgsConstructor
 @Getter
 @Entity
@@ -15,14 +16,12 @@ public class Product {
     @GeneratedValue
     private Long productId;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
-    @Column(name="price")
     private double price;
 
-    @Column(name="quantity")
-    private int quantity;
+     private int quantity;
 
     @ManyToOne
     @NotNull

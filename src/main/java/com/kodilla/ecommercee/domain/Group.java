@@ -11,14 +11,14 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "groups")
+@Table(name = "\"groups\"") //SQL syntax error - słowo groups zarezerwowane przez SQL
 public class Group {
     @Id
     @GeneratedValue
     private Long groupId;
 
     @NotNull
-    @Column
+    @Column(name = "name",unique = true)
     private String name;
 
     public Group(String name, List<Product> products) {
