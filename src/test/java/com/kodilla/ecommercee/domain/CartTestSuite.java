@@ -32,12 +32,13 @@ public class CartTestSuite {
     private Group group1;
     private Product product1;
     private Product product2;
+    private User user1;
 
     private void dataForTests(){
         group1 = new Group("group1",new ArrayList<>());
         product1 = new Product("product1",22.2,100,group1);
         product2 = new Product("product2", 37.5,1000,group1);
-        cart1 = new Cart(new ArrayList<>());
+        cart1 = new Cart(new ArrayList<>(),user1);
     }
 
     @Test

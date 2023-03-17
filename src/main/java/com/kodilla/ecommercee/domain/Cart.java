@@ -1,11 +1,9 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +21,8 @@ public class Cart {
         this.user = user;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,
+                  fetch = FetchType.EAGER)
     @JoinTable(
             name = "join_carts_products",
             joinColumns = {@JoinColumn(name = "cart_id")},
