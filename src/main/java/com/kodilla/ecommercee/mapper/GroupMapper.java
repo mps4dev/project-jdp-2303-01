@@ -10,11 +10,15 @@ import java.util.stream.Collectors;
 @Service
 public class GroupMapper {
     public Group mapToGroup(GroupDTO groupDTO) {
-        return new Group(groupDTO.getName(), groupDTO.getProducts());
+        return new Group(groupDTO.getGroupId(),
+                groupDTO.getName(),
+                groupDTO.getProducts());
     }
 
     public GroupDTO mapToGroupDTO(Group group) {
-        return new GroupDTO(group.getName(), group.getProducts());
+        return new GroupDTO(group.getGroupId(),
+                group.getName(),
+                group.getProducts());
     }
 
     public List<GroupDTO> mapToGroupDTOList(List<Group> groupList) {

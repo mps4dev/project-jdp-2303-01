@@ -1,12 +1,13 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Entity
@@ -27,11 +28,4 @@ public class Product {
     @NotNull
     @JoinColumn(name = "group_id")
     private Group group;
-
-    public Product(String name, double price, int quantity, Group group) {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.group = group;
-    }
 }

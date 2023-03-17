@@ -10,14 +10,17 @@ import java.util.stream.Collectors;
 @Service
 public class ProductMapper {
     public Product mapToProduct(final ProductDTO productDTO) {
-        return new Product(productDTO.getName(),
+        return new Product(productDTO.getProductId(),
+                productDTO.getName(),
                 productDTO.getPrice(),
                 productDTO.getQuantity(),
                 productDTO.getGroup());
     }
 
     public ProductDTO mapToProductDTO(final Product product) {
-        return new ProductDTO(product.getName(),
+        return new ProductDTO(
+                product.getProductId(),
+                product.getName(),
                 product.getPrice(),
                 product.getQuantity(),
                 product.getGroup());

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -20,11 +21,6 @@ public class Group {
     @NotNull
     @Column(name = "name",unique = true)
     private String name;
-
-    public Group(String name, List<Product> products) {
-        this.name = name;
-        this.products = products;
-    }
 
     @OneToMany(targetEntity = Product.class,
             mappedBy = "group",

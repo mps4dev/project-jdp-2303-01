@@ -25,10 +25,10 @@ public class GroupTestSuite {
     private Product product1;
     private Product product2;
     private void dataForTests(){
-         group1 = new Group("group1",new ArrayList<>());
-         group2 = new Group("group2",new ArrayList<>());
-         product1 = new Product("product1",12.2,5,group1);
-         product2 = new Product("product2",122.2,7,group2);
+         group1 = new Group(null,"group1",new ArrayList<>());
+         group2 = new Group(null,"group2",new ArrayList<>());
+         product1 = new Product(null,"product1",12.2,5,group1);
+         product2 = new Product(null,"product2",122.2,7,group2);
     }
 
     @Test
@@ -43,7 +43,6 @@ public class GroupTestSuite {
         //Then
         assertThat(savedGroup1.getName()).isEqualTo("group1");
         assertThat(savedGroup2.getName()).isEqualTo("group2");
-
 
         //CleanUp
         groupRepository.deleteAll();
@@ -117,16 +116,13 @@ public class GroupTestSuite {
         //When
         groupRepository.save(group1);
         groupRepository.save(group2);
-        Optional<Group> retriveById = groupRepository.findById(group1.getGroupId());
+        Optional<Group> retrieveById = groupRepository.findById(group1.getGroupId());
 
         //Then
-        assertEquals("group1",retriveById.orElse(new Group()).getName());
-        assertTrue(retriveById.isPresent());
+        assertEquals("group1",retrieveById.orElse(new Group()).getName());
+        assertTrue(retrieveById.isPresent());
 
         //CleanUp
         groupRepository.deleteAll();
     }
-
-
-
 }
