@@ -18,10 +18,12 @@ public class ProductMapper {
     }
 
     public ProductDTO mapToProductDTO(final Product product) {
-        return new ProductDTO(product.getProductId(),
+        return new ProductDTO(
+                product.getProductId(),
                 product.getName(),
                 product.getPrice(),
-                product.getQuantity(), product.getGroup());
+                product.getQuantity(),
+                product.getGroup());
     }
 
     public List<ProductDTO> mapToProductDTOList(List<Product> productList) {
