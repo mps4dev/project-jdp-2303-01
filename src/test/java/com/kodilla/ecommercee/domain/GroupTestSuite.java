@@ -43,7 +43,6 @@ public class GroupTestSuite {
         assertThat(savedGroup1.getName()).isEqualTo("group1");
         assertThat(savedGroup2.getName()).isEqualTo("group2");
 
-
         //CleanUp
         groupRepository.deleteAll();
     }
@@ -65,7 +64,6 @@ public class GroupTestSuite {
         assertEquals("group1", saveGroup1.getName());
         assertEquals("group2AfterChange", saveGroup2.getName());
         assertEquals(2, saveGroup1.getProducts().size());
-
 
         //CleanUp
         groupRepository.deleteAll();
@@ -125,7 +123,4 @@ public class GroupTestSuite {
         //CleanUp
         groupRepository.deleteAll();
     }
-
-
-
 }
