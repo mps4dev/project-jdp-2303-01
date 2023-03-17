@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-
 public class GroupTestSuite {
 
     @Autowired
