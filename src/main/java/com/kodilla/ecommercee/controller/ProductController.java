@@ -40,7 +40,7 @@ public class ProductController {
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ProductDTO> updateProduct(@RequestBody ProductDTO productDTO) {
+    public ResponseEntity<ProductDTO> updateProduct( @RequestBody ProductDTO productDTO) {
         Product product = productMapper.mapToProduct(productDTO);
         Product updatedProduct = productService.saveProduct(product);
         return ResponseEntity.ok(productMapper.mapToProductDTO(updatedProduct));

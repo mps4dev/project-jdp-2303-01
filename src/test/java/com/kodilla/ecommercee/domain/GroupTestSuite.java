@@ -24,10 +24,10 @@ public class GroupTestSuite {
     private Product product1;
     private Product product2;
     private void dataForTests(){
-         group1 = new Group("group1",new ArrayList<>());
-         group2 = new Group("group2",new ArrayList<>());
-         product1 = new Product("product1",12.2,5,group1);
-         product2 = new Product("product2",122.2,7,group2);
+         group1 = new Group(null,"group1",new ArrayList<>());
+         group2 = new Group(null,"group2",new ArrayList<>());
+         product1 = new Product(null,"product1",12.2,5,group1);
+         product2 = new Product(null,"product2",122.2,7,group2);
     }
 
     @Test
