@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-
+@AllArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -29,6 +29,5 @@ public class Product {
     @NotNull
     @JoinColumn(name = "group_id")
     private Group group;
-
 
 }

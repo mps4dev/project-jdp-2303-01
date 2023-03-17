@@ -35,7 +35,6 @@ public class ProductTestSuite {
     }
 
     @Test
-
     public void testSaveProducts() {
 
         // Given
@@ -65,7 +64,10 @@ public class ProductTestSuite {
         saveGroup1.getProducts().add(product1);
         saveGroup1.getProducts().add(product2);
         String updatedData = "MacBook M2";
+
         product1 = new Product(product2.getProductId(), updatedData, product1.getPrice(), product1.getQuantity(), product1.getGroup());
+        product1 = new Product(null,updatedData, product1.getPrice(), product1.getQuantity(), product1.getGroup());
+        
         Product updatedProduct = productRepository.save(product1);
 
         // Then

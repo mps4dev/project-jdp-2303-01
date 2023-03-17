@@ -43,7 +43,6 @@ public class GroupTestSuite {
         assertThat(savedGroup1.getName()).isEqualTo("group1");
         assertThat(savedGroup2.getName()).isEqualTo("group2");
 
-
         //CleanUp
         groupRepository.deleteAll();
     }
@@ -116,16 +115,13 @@ public class GroupTestSuite {
         //When
         groupRepository.save(group1);
         groupRepository.save(group2);
-        Optional<Group> retriveById = groupRepository.findById(group1.getGroupId());
+        Optional<Group> retrieveById = groupRepository.findById(group1.getGroupId());
 
         //Then
-        assertEquals("group1",retriveById.orElse(new Group()).getName());
-        assertTrue(retriveById.isPresent());
+        assertEquals("group1",retrieveById.orElse(new Group()).getName());
+        assertTrue(retrieveById.isPresent());
 
         //CleanUp
         groupRepository.deleteAll();
     }
-
-
-
 }
