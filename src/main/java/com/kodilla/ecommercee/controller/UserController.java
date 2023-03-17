@@ -1,27 +1,48 @@
 package com.kodilla.ecommercee.controller;
 
+
+import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.domain.dto.UserDTO;
 import com.kodilla.ecommercee.domain.dto.UserKeyDTO;
+import com.kodilla.ecommercee.exception.UserNotFoundException;
+import com.kodilla.ecommercee.mapper.UserMapper;
+import com.kodilla.ecommercee.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping("v1/users")
 @RestController
 @CrossOrigin("*")
+@RequiredArgsConstructor
 public class UserController {
-    @PostMapping(value = "user", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createUser(@RequestBody UserDTO userDTO){
+    private final UserService userService;
+    private final UserMapper userMapper;
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> createUser(@RequestBody UserDTO userDTO) {
+        User user = userMapper.mapToUser(userDTO);
+        userService.saveUser(user);
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping(value = "/{id}/block")
-    public ResponseEntity<Void> blockUser(long userId){
+    @PutMapping(value = "/{userId}/block")
+    public ResponseEntity<Void> blockUser(@PathVariable long userId) throws UserNotFoundException {
+        userService.blockUser(userId);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(value = "keygenerate")
-    public ResponseEntity<UserKeyDTO> generateKey() {
-        return ResponseEntity.ok(null);
+    @PostMapping(value = "/{userId}/keygenerate")
+    public ResponseEntity<UserKeyDTO> generateKey(@PathVariable long userId) throws UserNotFoundException {
+        return ResponseEntity.ok(userService.generateKey(userId));
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<UserDTO>> getUsers() {
+        List<User> userList = userService.showUsers();
+        return ResponseEntity.ok(userMapper.mapToUserDTOList(userList));
     }
 }

@@ -1,14 +1,14 @@
 package com.kodilla.ecommercee.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Entity
@@ -18,18 +18,16 @@ public class Cart {
     @GeneratedValue
     private Long cartId;
 
-    public Cart(List<Product> products, User user) {
-        this.products = products;
-        this.user = user;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,
+                  fetch = FetchType.EAGER)
     @JoinTable(
             name = "join_carts_products",
             joinColumns = {@JoinColumn(name = "cart_id")},
             inverseJoinColumns = {@JoinColumn(name = "product_id")})
+    @JsonIgnore
     private List<Product> products = new ArrayList<>();
+
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 }

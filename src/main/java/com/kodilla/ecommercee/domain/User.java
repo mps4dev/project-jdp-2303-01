@@ -1,7 +1,10 @@
 package com.kodilla.ecommercee.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,43 +13,40 @@ import java.util.List;
 
 @NoArgsConstructor
 @Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue
+    @JsonProperty("userId")
     private Long userId;
 
     @NotNull
-    @Column
     private String name;
 
     @NotNull
-    @Column
     private String lastName;
 
     @NotNull
-    @Column
     private String address;
 
     @NotNull
-    @Column
     private String login;
 
     @NotNull
-    @Column
     private String password;
 
-    public User(String name, String lastName, String address, String login, String password, Cart cart, List<Order> orders) {
-        this.name = name;
-        this.lastName = lastName;
-        this.address = address;
-        this.login = login;
-        this.password = password;
-        this.cart = cart;
-        this.orders = orders;
-    }
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "userkey_value")),
+            @AttributeOverride(name = "expirationTime", column = @Column(name = "userkey_expiration_time"))
+    })
+    @JsonProperty("user_key")
+    private UserKey userKey;
+
+    @NotNull
+    private boolean isBlocked;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Cart cart;
@@ -56,6 +56,17 @@ public class User {
             mappedBy = "user",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
+    @JsonBackReference("orderReference")
     private List<Order> orders = new ArrayList<>();
+
+    public User(Long userId, String name, String lastName, String address, String login, String password) {
+        this.userId = userId;
+        this.name = name;
+        this.lastName = lastName;
+        this.address = address;
+        this.login = login;
+        this.password = password;
+        this.isBlocked = false;
+    }
 }
 

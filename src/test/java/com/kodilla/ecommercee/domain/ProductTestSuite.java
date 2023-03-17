@@ -16,7 +16,6 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-
 public class ProductTestSuite {
 
     @Autowired
@@ -29,9 +28,10 @@ public class ProductTestSuite {
     private Product product2;
 
     public void createTestData() {
-        group1 = new Group("Electronics", new ArrayList<>());
-        product1 = new Product("Dell", 3000, 10, group1);
-        product2 = new Product("MacBook", 6000, 10, group1);
+
+        group1 = new Group(null,"Electronics", new ArrayList<>());
+        product1 = new Product(null,"Dell", 3000, 10, group1);
+        product2 = new Product(null,"MacBook", 6000, 10, group1);
     }
 
     @Test
@@ -65,7 +65,8 @@ public class ProductTestSuite {
         saveGroup1.getProducts().add(product1);
         saveGroup1.getProducts().add(product2);
         String updatedData = "MacBook M2";
-        product1 = new Product(updatedData, product1.getPrice(), product1.getQuantity(), product1.getGroup());
+        product1 = new Product(product2.getProductId(), updatedData, product1.getPrice(),
+                product1.getQuantity(), product1.getGroup());
         Product updatedProduct = productRepository.save(product1);
 
         // Then
