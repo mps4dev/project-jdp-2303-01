@@ -1,11 +1,11 @@
 package com.kodilla.ecommercee.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 
 @NoArgsConstructor
@@ -26,8 +26,9 @@ public class Product {
     private int quantity;
 
     @ManyToOne
-    @NotNull
+   // @NotNull
     @JoinColumn(name = "group_id")
+    @JsonIgnoreProperties("products")
     private Group group;
 
 }
