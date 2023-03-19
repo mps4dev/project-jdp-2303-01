@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "\"groups\"")
+@Table(name = "\"groups\"") //SQL syntax error - słowo groups zarezerwowane przez SQL
 public class Group {
     @Id
     @GeneratedValue
@@ -30,6 +29,5 @@ public class Group {
             mappedBy = "group",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    @JsonManagedReference
     List<Product> products = new ArrayList<>();
 }
