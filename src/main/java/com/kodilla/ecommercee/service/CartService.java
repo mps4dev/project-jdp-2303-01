@@ -3,6 +3,7 @@ package com.kodilla.ecommercee.service;
 import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
+import com.kodilla.ecommercee.mapper.CartMapper;
 import com.kodilla.ecommercee.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,12 +30,3 @@ public class CartService {
                 .remove(productId);
         cartRepository.save(cart);
     }
-
-
-
-}
-
-
-
-
-
