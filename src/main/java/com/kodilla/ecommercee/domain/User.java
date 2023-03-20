@@ -33,7 +33,7 @@ public class User {
 
     @NotNull
     private String password;
-    @NotNull
+
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "value", column = @Column(name = "userkey_value")),
