@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @NoArgsConstructor
@@ -26,7 +27,7 @@ public class Product {
     private int quantity;
 
     @ManyToOne
-   // @NotNull
+    @NotNull
     @JoinColumn(name = "group_id")
     @JsonBackReference
     private Group group;
