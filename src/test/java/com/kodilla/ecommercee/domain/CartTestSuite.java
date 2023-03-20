@@ -38,7 +38,7 @@ public class CartTestSuite {
         group1 = new Group(null,"group1",new ArrayList<>());
         product1 = new Product(null,"product1",22.2,100,group1);
         product2 = new Product(null,"product2", 37.5,1000,group1);
-        cart1 = new Cart(new ArrayList<>(),user1);
+        cart1 = new Cart(null,new ArrayList<>(),user1);
     }
 
     @Test
