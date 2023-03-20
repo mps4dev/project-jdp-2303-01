@@ -32,4 +32,7 @@ public class Product {
     @JsonBackReference
     private Group group;
 
+
+
+
 }

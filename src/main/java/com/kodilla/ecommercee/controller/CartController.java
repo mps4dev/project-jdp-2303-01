@@ -1,7 +1,11 @@
 package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.dto.CartDTO;
 import com.kodilla.ecommercee.domain.dto.OrderDTO;
+import com.kodilla.ecommercee.exception.CartNotFoundException;
+import com.kodilla.ecommercee.mapper.CartMapper;
+import com.kodilla.ecommercee.service.CartService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,24 +13,33 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("v1/carts")
 public class CartController {
 
+    private CartMapper cartMapper;
+    private CartService cartService;
+
 
     @PostMapping
     public ResponseEntity<Void> createCart(@RequestBody CartDTO cartDto){
+        Cart creatCart = cartMapper.mapToCart(cartDto);
+        cartService.createCart(creatCart);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping(value = "{cartId}")
-    public ResponseEntity<CartDTO> getCartById(@PathVariable long cartId){
-        return ResponseEntity.ok(null);
+    public ResponseEntity<CartDTO> getCartById(@PathVariable long cartId) throws CartNotFoundException {
+        Cart getCart = cartService.getCartById(cartId);
+        return ResponseEntity.ok(cartMapper.mapToCartDTO(getCart));
     }
 
     @PutMapping
     public ResponseEntity<CartDTO> updateCart(@RequestBody CartDTO cartDto){
-        return ResponseEntity.ok(null);
+        Cart getCart = cartMapper.mapToCart(cartDto);
+        Cart saveCart = cartService.createCart(getCart);
+        return ResponseEntity.ok(cartMapper.mapToCartDTO(saveCart));
     }
 
     @DeleteMapping(value = "/{cartId}")
-    public ResponseEntity<Void> deleteItemFromCart(@PathVariable long cartId, @RequestParam Long productId) {
+    public ResponseEntity<Void> deleteProductFromCart(@PathVariable long cartId, @RequestParam Long productId) throws CartNotFoundException {
+       cartService.removeFromCart(cartId,productId);
         return ResponseEntity.ok().build();
     }
 
