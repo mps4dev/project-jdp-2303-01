@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "\"groups\"") //SQL syntax error - słowo groups zarezerwowane przez SQL
+@Table(name = "\"groups\"")
 public class Group {
     @Id
     @GeneratedValue
