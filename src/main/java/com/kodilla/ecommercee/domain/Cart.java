@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,7 +17,11 @@ public class Cart {
     @GeneratedValue
     private Long cartId;
 
+ JDP230301-6
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL,
+                  fetch = FetchType.EAGER)
+
     @JoinTable(
             name = "join_carts_products",
             joinColumns = {@JoinColumn(name = "cart_id")},
