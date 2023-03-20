@@ -32,15 +32,15 @@ public class CartTestSuite {
     private Product product2;
     private User user1;
 
-    private void dataForTests(){
-        group1 = new Group(null,"group1",new ArrayList<>());
-        product1 = new Product(null,"product1",22.2,100,group1);
-        product2 = new Product(null,"product2", 37.5,1000,group1);
-        cart1 = new Cart(new ArrayList<>(),user1);
+    private void dataForTests() {
+        group1 = new Group(null, "group1", new ArrayList<>());
+        product1 = new Product(null, "product1", 22.2, 100, group1);
+        product2 = new Product(null, "product2", 37.5, 1000, group1);
+        cart1 = new Cart(null, new ArrayList<>(), user1);
     }
 
     @Test
-    public void shouldCreateEmptyCart(){
+    public void shouldCreateEmptyCart() {
 
         //Given
         dataForTests();
@@ -50,7 +50,7 @@ public class CartTestSuite {
         List<Product> emptyCartSize = createCart.getProducts();
 
         //Then
-        assertEquals(1,cartRepository.count());
+        assertEquals(1, cartRepository.count());
         assertTrue(emptyCartSize.isEmpty());
 
         //CleanUp
@@ -58,8 +58,9 @@ public class CartTestSuite {
         productRepository.deleteAll();
         groupRepository.deleteAll();
     }
+
     @Test
-    public void shouldGetProductsFromEmptyCart(){
+    public void shouldGetProductsFromEmptyCart() {
 
         //Given
         dataForTests();
@@ -70,14 +71,14 @@ public class CartTestSuite {
         List<Product> productsInCart = savedCard.getProducts();
 
         //Then
-        assertEquals(0,productsInCart.size());
+        assertEquals(0, productsInCart.size());
 
         //CleanUp
         cartRepository.deleteAll();
     }
 
     @Test
-    public void shouldAddProductToCart(){
+    public void shouldAddProductToCart() {
 
         //Given
         dataForTests();
@@ -94,7 +95,7 @@ public class CartTestSuite {
 
         //Then
         assertNotNull(retrievedCart);
-        assertEquals(2,retrievedCart.getProducts().size());
+        assertEquals(2, retrievedCart.getProducts().size());
         assertTrue(cart1.getProducts().contains(product1));
         assertTrue(cart1.getProducts().contains(product2));
 
@@ -106,7 +107,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void shouldDeleteProductFromCart(){
+    public void shouldDeleteProductFromCart() {
 
         //Given
         dataForTests();
@@ -122,9 +123,9 @@ public class CartTestSuite {
         cartRepository.save(cart1);
 
         //Then
-        assertNotEquals(2,cart1.getProducts().size());
-        assertEquals(1,cart1.getProducts().size());
-        assertEquals("product2",cart1.getProducts().get(0).getName());
+        assertNotEquals(2, cart1.getProducts().size());
+        assertEquals(1, cart1.getProducts().size());
+        assertEquals("product2", cart1.getProducts().get(0).getName());
 
         //CleanUp
         cartRepository.deleteAll();
@@ -133,33 +134,30 @@ public class CartTestSuite {
     }
 
     @Test
-    public void shouldFindProductsInCart(){
+    public void shouldFindProductsInCart() {
 
         //Given
         dataForTests();
 
         //Whne
-         groupRepository.save(group1);
-         productRepository.save(product1);
-         productRepository.save(product2);
-         cartRepository.save(cart1);
-         cart1.getProducts().add(product1);
-         cart1.getProducts().add(product2);
-         cartRepository.save(cart1);
-         Cart getCart = cartRepository.findById(cart1.getCartId()).orElse(null);
-        List<Product>findproducts =getCart.getProducts();
+        groupRepository.save(group1);
+        productRepository.save(product1);
+        productRepository.save(product2);
+        cartRepository.save(cart1);
+        cart1.getProducts().add(product1);
+        cart1.getProducts().add(product2);
+        cartRepository.save(cart1);
+        Cart getCart = cartRepository.findById(cart1.getCartId()).orElse(null);
+        List<Product> findproducts = getCart.getProducts();
 
         //Then
-        assertEquals(2,findproducts.size());
+        assertEquals(2, findproducts.size());
 
         //CleanUp
         cartRepository.deleteAll();
         productRepository.deleteAll();
         groupRepository.deleteAll();
     }
-
-
-
 
 
 }
