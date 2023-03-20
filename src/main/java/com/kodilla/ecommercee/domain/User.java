@@ -33,6 +33,13 @@ public class User {
 
     @NotNull
     private String password;
+    @NotNull
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "userkey_value")),
+            @AttributeOverride(name = "expirationTime", column = @Column(name = "userkey_expiration_time"))
+    })
+    private UserKey userKey;
 
     @NotNull
     private boolean isBlocked;
