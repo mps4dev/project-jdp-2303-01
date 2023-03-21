@@ -6,17 +6,19 @@ import com.kodilla.ecommercee.domain.dto.OrderDTO;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
 import com.kodilla.ecommercee.mapper.CartMapper;
 import com.kodilla.ecommercee.service.CartService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("v1/carts")
+@RequiredArgsConstructor
+@CrossOrigin("*")
 public class CartController {
 
-    private CartMapper cartMapper;
-    private CartService cartService;
-
+    private final CartMapper cartMapper;
+    private final CartService cartService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> createCart(@RequestBody CartDTO cartDto){

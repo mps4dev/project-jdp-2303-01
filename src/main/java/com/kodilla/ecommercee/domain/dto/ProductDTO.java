@@ -11,5 +11,5 @@ public class ProductDTO {
     private String name;
     private double price;
     private int quantity;
-    private Group group;
+    private final Group group;
 }

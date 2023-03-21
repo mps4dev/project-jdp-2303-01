@@ -15,6 +15,7 @@ public class ProductMapper {
                 productDTO.getPrice(),
                 productDTO.getQuantity(),
                 productDTO.getGroup());
+
     }
 
     public ProductDTO mapToProductDTO(final Product product) {
