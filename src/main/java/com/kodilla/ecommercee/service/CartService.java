@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CartService {
 
-    private CartRepository cartRepository;
+    private final CartRepository cartRepository;
 
     public Cart createCart(Cart cart ){
        return cartRepository.save(cart);
