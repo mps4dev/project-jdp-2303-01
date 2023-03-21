@@ -7,7 +7,7 @@ Project Manager : Marcin Szuppe
 ## Authors
 - Jakub Antonik
 - Dominik Kulpowicz
-- Jakub Antonik
+- Przemysław Siciński
 - Paweł Staszewski
 
 ### Endpoints
