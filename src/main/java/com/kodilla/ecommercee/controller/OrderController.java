@@ -1,6 +1,9 @@
 package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.dto.OrderDTO;
+import com.kodilla.ecommercee.mapper.OrderMapper;
+import com.kodilla.ecommercee.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class OrderController {
+    private final OrderService orderService;
+
+
+    private final OrderMapper orderMapper;
 
     @GetMapping
     public ResponseEntity<List<OrderDTO>> getOrders() { return ResponseEntity.ok(Collections.emptyList()); }
@@ -32,6 +39,8 @@ public class OrderController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> createOrder(@RequestBody OrderDTO orderDTO) {
+        Order order = orderMapper.mapToOrder(orderDTO);
+        orderService.saveOrder(order);
         return ResponseEntity.ok().build();
     }
 }
