@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.service;
 
+import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.domain.UserKey;
 import com.kodilla.ecommercee.domain.dto.UserKeyDTO;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -35,5 +37,9 @@ public class UserService {
         user.setUserKey(key);
         userRepository.save(user);
         return userKeyMapper.mapToUserKeyDTO(user.getUserKey());
+    }
+
+    public List<User> showUsers() {
+        return userRepository.findAll();
     }
 }
