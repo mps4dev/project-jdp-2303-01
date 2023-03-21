@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -35,5 +36,8 @@ public class UserService {
         user.setUserKey(key);
         userRepository.save(user);
         return userKeyMapper.mapToUserKeyDTO(user.getUserKey());
+    }
+    public List<User> showUsers() {
+        return userRepository.findAll();
     }
 }
