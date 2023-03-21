@@ -11,12 +11,12 @@ Project Manager : Marcin Szuppe
 - Paweł Staszewski
 
 ### Endpoints
-[ProductController](docs/USAGE.md)
+[ProductController](docs/ProductController.md)
 
-[GroupController](docs/USAGE.md)
+[GroupController](docs/GroupController.md)
 
-[CartController](docs/USAGE.md)
+[CartController](docs/CartController.md)
 
-[OrderController](docs/USAGE.md)
+[OrderController](docs/OrderController.md)
 
-[UserController](docs/USAGE.md)
+[UserController](docs/UserController.md)
