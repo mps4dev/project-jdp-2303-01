@@ -16,16 +16,16 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class OrderService {
+
     private final OrderRepository orderRepository;
     private final CartRepository cartRepository;
 
-    public List<Order> showOrders() {
-        return orderRepository.findAll();
+    public void saveOrder(Order order){
+         orderRepository.save(order);
     }
 
-    public Order showOrder(final long orderId) throws OrderNotFoundException {
-        return orderRepository.findById(orderId).orElseThrow(OrderNotFoundException::new);
-    }
+    public void CreateOrderBasedOnCart(Cart cart){
+        cartRepository.save(cart);
 
     public Order saveOrder(final Order order) {
         return orderRepository.save(order);
