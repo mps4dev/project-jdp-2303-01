@@ -60,7 +60,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void shouldGetProductsFromEmptyCart() {
+    public void testGetProductsFromEmptyCart() {
 
         //Given
         dataForTests();
@@ -78,7 +78,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void shouldAddProductToCart() {
+    public void testAddProductToCart() {
 
         //Given
         dataForTests();
@@ -107,7 +107,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void shouldDeleteProductFromCart() {
+    public void testDeleteProductFromCart() {
 
         //Given
         dataForTests();
@@ -134,12 +134,12 @@ public class CartTestSuite {
     }
 
     @Test
-    public void shouldFindProductsInCart() {
+    public void testFindProductsInCart() {
 
         //Given
         dataForTests();
 
-        //Whne
+        //When
         groupRepository.save(group1);
         productRepository.save(product1);
         productRepository.save(product2);

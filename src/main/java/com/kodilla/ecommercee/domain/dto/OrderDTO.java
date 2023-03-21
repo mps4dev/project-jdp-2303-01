@@ -1,7 +1,17 @@
 package com.kodilla.ecommercee.domain.dto;
 
-public class OrderDTO {
+import com.kodilla.ecommercee.domain.Cart;
+import com.kodilla.ecommercee.domain.User;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-    public OrderDTO(){
-    }
+import java.time.LocalDateTime;
+
+@Getter
+@AllArgsConstructor
+public class OrderDTO {
+    private Long orderId;
+    private Cart cart;
+    private User user;
+    private LocalDateTime orderDate;
 }
