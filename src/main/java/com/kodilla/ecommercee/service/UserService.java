@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.service;
 
-import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.domain.UserKey;
 import com.kodilla.ecommercee.domain.dto.UserKeyDTO;
@@ -38,7 +37,6 @@ public class UserService {
         userRepository.save(user);
         return userKeyMapper.mapToUserKeyDTO(user.getUserKey());
     }
-
     public List<User> showUsers() {
         return userRepository.findAll();
     }

@@ -12,6 +12,4 @@ public class OrderMapper {
                 orderDTO.getCart(),
                 orderDTO.getUser());
     }
-
-
 }

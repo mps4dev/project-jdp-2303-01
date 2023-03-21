@@ -1,14 +1,11 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.Cart;
-import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.dto.CartDTO;
-import com.kodilla.ecommercee.domain.dto.OrderDTO;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
 import com.kodilla.ecommercee.mapper.CartMapper;
-import com.kodilla.ecommercee.mapper.OrderMapper;
-import com.kodilla.ecommercee.repository.OrderRepository;
 import com.kodilla.ecommercee.service.CartService;
+import com.kodilla.ecommercee.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,17 +19,14 @@ public class CartController {
 
     private final CartMapper cartMapper;
     private final CartService cartService;
-    private final OrderRepository orderRepository;
-    private final OrderMapper orderMapper;
-
-
-
+    private final OrderService orderService;
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createCart( CartDTO cartDto){
+    public ResponseEntity<Void> createCart(CartDTO cartDto) {
         Cart creatCart = cartMapper.mapToCart(cartDto);
         cartService.createCart(creatCart);
         return ResponseEntity.ok().build();
     }
+
 
     @GetMapping(value = "{cartId}")
     public ResponseEntity<CartDTO> getCartById(@PathVariable long cartId) throws CartNotFoundException {
@@ -40,12 +34,14 @@ public class CartController {
         return ResponseEntity.ok(cartMapper.mapToCartDTO(cart));
     }
 
+
     @PutMapping
-    public ResponseEntity<CartDTO> updateCart(@RequestBody CartDTO cartDto){
+    public ResponseEntity<CartDTO> updateCart(@RequestBody CartDTO cartDto) {
         Cart cart = cartMapper.mapToCart(cartDto);
         Cart saveCart = cartService.createCart(cart);
         return ResponseEntity.ok(cartMapper.mapToCartDTO(saveCart));
     }
+
 
     @DeleteMapping(value = "/{cartId}")
     public ResponseEntity<Void> deleteProductFromCart(@PathVariable long cartId, @RequestParam Long productId) throws CartNotFoundException {
@@ -53,12 +49,10 @@ public class CartController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping(value = "/{cartId}/order")
-    public ResponseEntity<Void> createOrderFromCart(@RequestBody CartDTO cartDTO ,@RequestBody OrderDTO orderDTO){
-        Cart cart = cartMapper.mapToCart(cartDTO);
-        Order order = orderMapper.mapToOrder(orderDTO);
-        order.setCart(cart);
-        orderRepository.save(order);
+    @PostMapping(value = "/{cartId}/{userId}")
+    public ResponseEntity<Void> createOrderFromCart(@PathVariable long cartId, @PathVariable long userId) {
+        orderService.createOrderBasedOnCart(cartId, userId);
         return ResponseEntity.ok().build();
     }
 }
+
