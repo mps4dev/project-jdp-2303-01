@@ -38,7 +38,6 @@ public class UserService {
         userRepository.save(user);
         return userKeyMapper.mapToUserKeyDTO(user.getUserKey());
     }
-
     public List<User> showUsers() {
         return userRepository.findAll();
     }
