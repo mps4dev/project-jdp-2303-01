@@ -44,3 +44,4 @@ public class Product {
         this.group = group;
     }
 }
+
