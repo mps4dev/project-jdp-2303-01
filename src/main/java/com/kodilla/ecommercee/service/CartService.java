@@ -15,6 +15,7 @@ public class CartService {
 
     private final CartRepository cartRepository;
 
+
     public Cart createCart(Cart cart ){
        return cartRepository.save(cart);
     }
@@ -29,7 +30,6 @@ public class CartService {
                 .remove(productId);
         cartRepository.save(cart);
     }
-
 
 
 }
