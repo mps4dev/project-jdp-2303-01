@@ -24,18 +24,7 @@ public class OrderService {
          orderRepository.save(order);
     }
 
-    public void CreateOrderBasedOnCart(Cart cart){
-        cartRepository.save(cart);
-
-    public Order saveOrder(final Order order) {
-        return orderRepository.save(order);
-    }
-
-    public void deleteOrder(final long orderId) {
-        orderRepository.deleteById(orderId);
-    }
-
-    public void createOrderBasedOnCart(Long cartId) {
+    public void createOrderBasedOnCart(Long cartId, long userId) {
         Optional<Cart> optionalCart = cartRepository.findById(cartId);
         Cart cart = optionalCart.get();
         User user = optionalCart.get().getUser();

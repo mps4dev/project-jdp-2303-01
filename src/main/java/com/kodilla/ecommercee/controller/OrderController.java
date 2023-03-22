@@ -19,18 +19,22 @@ import java.util.List;
 @CrossOrigin("*")
 public class OrderController {
     private final OrderService orderService;
-
-
     private final OrderMapper orderMapper;
 
     @GetMapping
-    public ResponseEntity<List<OrderDTO>> getOrders() { return ResponseEntity.ok(Collections.emptyList()); }
+    public ResponseEntity<List<OrderDTO>> getOrders() {
+        return ResponseEntity.ok(Collections.emptyList());
+    }
 
     @GetMapping(value = "{orderId}")
-    public ResponseEntity<OrderDTO> getOrder(@PathVariable long orderId) { return ResponseEntity.ok(null); }
+    public ResponseEntity<OrderDTO> getOrder(@PathVariable long orderId) {
+        return ResponseEntity.ok(null);
+    }
 
     @DeleteMapping(value = "{orderId}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable long orderId) { return ResponseEntity.ok(null); }
+    public ResponseEntity<Void> deleteOrder(@PathVariable long orderId) {
+        return ResponseEntity.ok(null);
+    }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderDTO> updateOrder(@RequestBody OrderDTO orderDTO) {
