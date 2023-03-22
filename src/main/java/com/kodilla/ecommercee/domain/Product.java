@@ -32,6 +32,7 @@ public class Product {
     private Group group;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")
+    @JsonBackReference
     private List<Cart> carts;
 
     public Product(Long productId, String name, double price, int quantity, Group group) {
