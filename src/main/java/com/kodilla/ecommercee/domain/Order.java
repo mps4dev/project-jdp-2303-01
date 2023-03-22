@@ -17,7 +17,7 @@ public class Order {
     @GeneratedValue
     private Long orderId;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cart_Id")
     private Cart cart;
 

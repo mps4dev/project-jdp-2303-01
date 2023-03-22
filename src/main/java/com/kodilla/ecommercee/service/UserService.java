@@ -29,6 +29,7 @@ public class UserService {
         foundUser.setBlocked(true);
         userRepository.save(foundUser);
     }
+
     public UserKeyDTO generateKey(final long userId) throws UserNotFoundException {
         User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
         Random random = new Random();
@@ -37,6 +38,7 @@ public class UserService {
         userRepository.save(user);
         return userKeyMapper.mapToUserKeyDTO(user.getUserKey());
     }
+
     public List<User> showUsers() {
         return userRepository.findAll();
     }

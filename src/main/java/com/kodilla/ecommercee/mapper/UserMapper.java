@@ -20,15 +20,14 @@ public class UserMapper {
                 userDTO.getPassword());
     }
 
-
     public UserDTO mapToUserDTO(final User user) {
-      return new UserDTO(
-          user.getUserId(),
-              user.getName(),
-              user.getLastName(),
-              user.getAddress(),
-              user.getLogin(),
-              user.getPassword());
+        return new UserDTO(
+                user.getUserId(),
+                user.getName(),
+                user.getLastName(),
+                user.getAddress(),
+                user.getLogin(),
+                user.getPassword());
     }
 
     public List<UserDTO> mapToUserDTOList(List<User> userList) {

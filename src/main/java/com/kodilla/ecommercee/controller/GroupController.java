@@ -19,6 +19,7 @@ import java.util.List;
 public class GroupController {
     private final GroupService groupService;
     private final GroupMapper groupMapper;
+
     @GetMapping()
     public ResponseEntity<List<GroupDTO>> getGroups() {
         List<Group> groupList = groupService.showGroups();

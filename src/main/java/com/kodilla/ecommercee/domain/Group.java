@@ -23,7 +23,7 @@ public class Group {
     private Long groupId;
 
     @NotNull
-    @Column(name = "name",unique = true)
+    @Column(name = "name", unique = true)
     private String name;
 
     @OneToMany(targetEntity = Product.class,

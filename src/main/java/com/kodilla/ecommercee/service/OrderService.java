@@ -15,21 +15,18 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class OrderService {
-
     private final OrderRepository orderRepository;
     private final CartRepository cartRepository;
     private final UserRepository userRepository;
 
-    public void saveOrder(Order order){
-         orderRepository.save(order);
+    public void saveOrder(Order order) {
+        orderRepository.save(order);
     }
-    public void createOrderBasedOnCart(Long cartId, long userId) {
+
+    public void createOrderBasedOnCart(Long cartId) {
         Optional<Cart> optionalCart = cartRepository.findById(cartId);
         Cart cart = optionalCart.get();
-
-        Optional<User> optionalUser = userRepository.findById(userId);
-        User user = optionalUser.get();
-
+        User user = optionalCart.get().getUser();
         Order order = new Order(null, cart, user);
         orderRepository.save(order);
     }

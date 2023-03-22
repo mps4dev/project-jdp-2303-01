@@ -6,8 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrderMapper {
-
-    public Order mapToOrder(OrderDTO orderDTO){
+    public Order mapToOrder(OrderDTO orderDTO) {
         return new Order(orderDTO.getOrderId(),
                 orderDTO.getCart(),
                 orderDTO.getUser());

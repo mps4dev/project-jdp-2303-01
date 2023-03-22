@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,12 +35,12 @@ public class User {
     @NotNull
     private String password;
 
-//    @Embedded
-//    @AttributeOverrides({
-//            @AttributeOverride(name = "value", column = @Column(name = "userkey_value")),
-//            @AttributeOverride(name = "expirationTime", column = @Column(name = "userkey_expiration_time"))
-//    })
-//    @JsonProperty("user_key")
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "userkey_value")),
+            @AttributeOverride(name = "expirationTime", column = @Column(name = "userkey_expiration_time"))
+    })
+    @JsonProperty("user_key")
     private UserKey userKey;
 
     @NotNull
