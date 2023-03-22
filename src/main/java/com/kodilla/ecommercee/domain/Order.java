@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,12 +20,12 @@ public class Order {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "cart_Id")
-    @JsonBackReference
+    @JsonManagedReference
     private Cart cart;
 
     @ManyToOne
     @JoinColumn(name = "user_Id")
-    @JsonBackReference
+    @JsonManagedReference
     private User user;
 
     private LocalDateTime orderDate;
