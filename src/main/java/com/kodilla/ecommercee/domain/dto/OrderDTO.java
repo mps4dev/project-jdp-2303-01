@@ -13,5 +13,4 @@ public class OrderDTO {
     private long orderId;
     private Cart cart;
     private User user;
-    private LocalDateTime orderDate;
 }

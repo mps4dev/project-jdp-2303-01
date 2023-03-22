@@ -19,7 +19,6 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue
-    @JsonProperty("userId")
     private Long userId;
 
     @NotNull
@@ -56,7 +55,7 @@ public class User {
             mappedBy = "user",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    @JsonBackReference("orderReference")
+    @JsonBackReference
     private List<Order> orders = new ArrayList<>();
 
     public User(Long userId, String name, String lastName, String address, String login, String password) {
