@@ -60,7 +60,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void testGetProductsFromEmptyCart() {
+    public void shouldGetProductsFromEmptyCart() {
 
         //Given
         dataForTests();
@@ -78,7 +78,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void testAddProductToCart() {
+    public void shouldAddProductToCart() {
 
         //Given
         dataForTests();
@@ -107,7 +107,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void testDeleteProductFromCart() {
+    public void shouldDeleteProductFromCart() {
 
         //Given
         dataForTests();
@@ -134,7 +134,7 @@ public class CartTestSuite {
     }
 
     @Test
-    public void testFindProductsInCart() {
+    public void shouldFindProductsInCart() {
 
         //Given
         dataForTests();
