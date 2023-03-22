@@ -28,6 +28,7 @@ public class OrderController {
 
     @GetMapping(value = "{orderId}")
     public ResponseEntity<OrderDTO> getOrder(@PathVariable long orderId) {
+        List<Order> orderList = orderService.showOrders();
         return ResponseEntity.ok(null);
     }
 
