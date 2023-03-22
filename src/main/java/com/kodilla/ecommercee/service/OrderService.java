@@ -20,8 +20,8 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final CartRepository cartRepository;
 
-    public void saveOrder(Order order){
-         orderRepository.save(order);
+    public void saveOrder(Order order) {
+        orderRepository.save(order);
     }
 
     public void createOrderBasedOnCart(Long cartId, long userId) {
