@@ -9,19 +9,16 @@ import java.util.stream.Collectors;
 
 @Service
 public class OrderMapper {
-
     public Order mapToOrder(final OrderDTO orderDTO) {
         return new Order(orderDTO.getOrderId(),
                 orderDTO.getCart(),
-                orderDTO.getUser(),
-                orderDTO.getOrderDate());
+                orderDTO.getUser());
     }
 
     public OrderDTO mapToOrderDTO(final Order order) {
         return new OrderDTO(order.getOrderId(),
                 order.getCart(),
-                order.getUser(),
-                order.getOrderDate());
+                order.getUser());
     }
 
     public List<OrderDTO> mapToOrderDTOList(List<Order> orderList) {
@@ -29,4 +26,6 @@ public class OrderMapper {
                 .map(this::mapToOrderDTO)
                 .collect(Collectors.toList());
     }
+
+
 }
