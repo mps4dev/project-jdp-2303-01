@@ -48,6 +48,7 @@ public class User {
     private boolean isBlocked;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     private Cart cart;
 
     @OneToMany(
