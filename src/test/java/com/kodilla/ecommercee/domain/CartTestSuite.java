@@ -139,7 +139,7 @@ public class CartTestSuite {
         //Given
         dataForTests();
 
-        //Whne
+        //When
         groupRepository.save(group1);
         productRepository.save(product1);
         productRepository.save(product2);
