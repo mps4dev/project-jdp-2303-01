@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.domain.dto;
 
-import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Order;
 import lombok.Getter;
 
@@ -16,7 +15,7 @@ public class UserDTO {
     private String login;
     private String password;
     private boolean isBlocked;
-    private Cart cart;
+
     private List<Order> orders = new ArrayList<>();
     public UserDTO(Long userId, String name, String lastName, String address, String login, String password) {
         this.userId = userId;
