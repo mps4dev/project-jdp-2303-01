@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends Auditable {
     @Id
     @GeneratedValue
     private Long userId;

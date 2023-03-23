@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "\"groups\"")
-public class Group {
+public class Group extends Auditable {
     @Id
     @GeneratedValue
     private Long groupId;

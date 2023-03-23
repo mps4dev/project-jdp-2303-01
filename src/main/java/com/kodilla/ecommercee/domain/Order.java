@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order extends Auditable {
     @Id
     @GeneratedValue
     private Long orderId;

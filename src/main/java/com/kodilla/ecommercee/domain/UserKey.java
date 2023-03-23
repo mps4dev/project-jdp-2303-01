@@ -10,7 +10,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class UserKey {
+public class UserKey extends Auditable {
     private Long value;
     private Instant expirationTime;
 }

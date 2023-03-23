@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product extends Auditable {
     @Id
     @GeneratedValue
     private Long productId;
