@@ -7,18 +7,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Entity
 @Table(name = "carts")
-public class Cart {
+public class Cart extends Auditable {
     @Id
     @GeneratedValue
     private Long cartId;
 
     @ManyToMany(cascade = CascadeType.ALL,
-                  fetch = FetchType.EAGER)
+            fetch = FetchType.EAGER)
     @JoinTable(
             name = "join_carts_products",
             joinColumns = {@JoinColumn(name = "cart_id")},
