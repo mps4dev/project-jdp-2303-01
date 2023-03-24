@@ -19,6 +19,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue
+    @JsonProperty("userId")
     private Long userId;
 
     @NotNull
@@ -48,7 +49,6 @@ public class User {
     private boolean isBlocked;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
     private Cart cart;
 
     @OneToMany(
@@ -56,7 +56,7 @@ public class User {
             mappedBy = "user",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonBackReference("orderReference")
     private List<Order> orders = new ArrayList<>();
 
     public User(Long userId, String name, String lastName, String address, String login, String password) {

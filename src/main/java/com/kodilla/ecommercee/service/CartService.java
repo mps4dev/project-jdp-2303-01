@@ -8,10 +8,12 @@ import com.kodilla.ecommercee.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CartService {
     private final CartRepository cartRepository;
     private final ProductMapper productMapper;
