@@ -29,7 +29,7 @@ public class Product {
     @ManyToOne
     @NotNull
     @JoinColumn(name = "group_id")
-    @JsonManagedReference
+    @JsonIgnore
     private Group group;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "products")

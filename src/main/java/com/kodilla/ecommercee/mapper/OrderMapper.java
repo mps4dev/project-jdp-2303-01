@@ -12,8 +12,13 @@ public class OrderMapper {
     public Order mapToOrder(OrderDTO orderDTO) {
         return new Order(orderDTO.getOrderId(),
                 orderDTO.getCart(),
-                orderDTO.getUser(),
-                orderDTO.getOrderDate());
+                orderDTO.getUser());
+    }
+
+    public OrderDTO mapToOrderDTO(Order order){
+        return new OrderDTO(order.getOrderId(),
+                order.getCart(),
+                order.getUser());
     }
 
 
