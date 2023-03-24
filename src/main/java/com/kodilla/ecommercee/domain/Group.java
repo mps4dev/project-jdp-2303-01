@@ -1,6 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +30,6 @@ public class Group {
             mappedBy = "group",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonIgnore
     List<Product> products = new ArrayList<>();
 }
