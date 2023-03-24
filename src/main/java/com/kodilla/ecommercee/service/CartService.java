@@ -4,6 +4,7 @@ import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.dto.ProductDTO;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
+import com.kodilla.ecommercee.mapper.ProductMapper;
 import com.kodilla.ecommercee.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,13 @@ public class CartService {
             }
         }
         cartRepository.save(cart);
+    }
+
+    public Cart addProductToCart(long cartId, ProductDTO productDTO)throws CartNotFoundException{
+        Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
+        Product productfromDTO = productMapper.mapToProduct(productDTO);
+        cart.getProducts().add(productfromDTO);
+        return cartRepository.save(cart);
     }
 }
 

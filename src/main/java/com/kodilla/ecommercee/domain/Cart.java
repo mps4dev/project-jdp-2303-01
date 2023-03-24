@@ -1,7 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +24,7 @@ public class Cart {
             name = "join_carts_products",
             joinColumns = {@JoinColumn(name = "cart_id")},
             inverseJoinColumns = {@JoinColumn(name = "product_id")})
-    @JsonManagedReference
+    @JsonIgnore
     private List<Product> products = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)

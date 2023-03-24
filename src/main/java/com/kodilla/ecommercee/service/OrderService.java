@@ -22,11 +22,20 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final CartRepository cartRepository;
 
-    public void saveOrder(Order order) {
-        orderRepository.save(order);
+    public List<Order> showOrders() {
+        return orderRepository.findAll();
+    }
+    public Order showOrder(final long orderId) throws OrderNotFoundException {
+        return orderRepository.findById(orderId).orElseThrow(OrderNotFoundException::new);
+    }
+    public Order saveOrder(final Order order) {
+        return orderRepository.save(order);
+    }
+    public void deleteOrder(final long orderId) {
+        orderRepository.deleteById(orderId);
     }
 
-    public void createOrderBasedOnCart(Long cartId, long userId) {
+    public void createOrderBasedOnCart(Long cartId) {
         Optional<Cart> optionalCart = cartRepository.findById(cartId);
         Cart cart = optionalCart.get();
         User user = optionalCart.get().getUser();
