@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.service;
 
-import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.domain.UserKey;
 import com.kodilla.ecommercee.domain.dto.UserKeyDTO;
@@ -30,6 +29,7 @@ public class UserService {
         foundUser.setBlocked(true);
         userRepository.save(foundUser);
     }
+
     public UserKeyDTO generateKey(final long userId) throws UserNotFoundException {
         User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
         Random random = new Random();
