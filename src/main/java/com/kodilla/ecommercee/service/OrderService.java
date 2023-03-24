@@ -9,28 +9,28 @@ import com.kodilla.ecommercee.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class OrderService {
+
     private final OrderRepository orderRepository;
     private final CartRepository cartRepository;
 
     public List<Order> showOrders() {
         return orderRepository.findAll();
     }
-
     public Order showOrder(final long orderId) throws OrderNotFoundException {
         return orderRepository.findById(orderId).orElseThrow(OrderNotFoundException::new);
     }
-
     public Order saveOrder(final Order order) {
         return orderRepository.save(order);
     }
-
     public void deleteOrder(final long orderId) {
         orderRepository.deleteById(orderId);
     }
