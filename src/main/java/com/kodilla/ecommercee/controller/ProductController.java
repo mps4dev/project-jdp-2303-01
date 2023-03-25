@@ -8,6 +8,7 @@ import com.kodilla.ecommercee.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class ProductController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<Void> createProduct(@RequestBody ProductDTO productDTO) {
         Product product = productMapper.mapToProduct(productDTO);
         productService.saveProduct(product);
@@ -40,6 +42,7 @@ public class ProductController {
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<ProductDTO> updateProduct(@RequestBody ProductDTO productDTO) {
         Product product = productMapper.mapToProduct(productDTO);
         Product updatedProduct = productService.saveProduct(product);
@@ -47,6 +50,7 @@ public class ProductController {
     }
 
     @DeleteMapping(value = "{productId}")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<Void> deleteProduct(@PathVariable long productId) {
         productService.deleteProduct(productId);
         return ResponseEntity.ok().build();

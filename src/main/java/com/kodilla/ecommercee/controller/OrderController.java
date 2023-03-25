@@ -8,6 +8,7 @@ import com.kodilla.ecommercee.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,24 +24,28 @@ public class OrderController {
     private final OrderMapper orderMapper;
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('user','admin')")
     public ResponseEntity<List<OrderDTO>> getOrders() {
         List<Order> orderList = orderService.showOrders();
         return ResponseEntity.ok(orderMapper.mapToOrderDTOList(orderList));
     }
 
     @GetMapping(value = "{orderId}")
+    @PreAuthorize("hasAnyRole('user','admin')")
     public ResponseEntity<OrderDTO> getOrder(@PathVariable long orderId) throws OrderNotFoundException {
         Order foundOrder = orderService.showOrder(orderId);
         return ResponseEntity.ok(orderMapper.mapToOrderDTO(foundOrder));
     }
 
     @DeleteMapping(value = "{orderId}")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<Void> deleteOrder(@PathVariable long orderId) {
         orderService.deleteOrder(orderId);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<OrderDTO> updateOrder(@RequestBody OrderDTO orderDTO) {
         Order order = orderMapper.mapToOrder(orderDTO);
         Order updatedOrder = orderService.saveOrder(order);
@@ -48,6 +53,7 @@ public class OrderController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('user')")
     public ResponseEntity<Void> createOrder(@RequestBody OrderDTO orderDTO) {
             Order newOrder = orderMapper.mapToOrder(orderDTO);
             orderService.saveOrder(newOrder);
