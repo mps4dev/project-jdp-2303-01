@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue
+    @JsonProperty("userId")
     private Long userId;
 
     @NotNull
@@ -54,6 +56,7 @@ public class User {
             mappedBy = "user",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
+    @JsonBackReference("orderReference")
     private List<Order> orders = new ArrayList<>();
 
     public User(Long userId, String name, String lastName, String address, String login, String password) {
