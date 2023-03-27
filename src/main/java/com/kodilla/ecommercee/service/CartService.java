@@ -4,7 +4,6 @@ import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
 import com.kodilla.ecommercee.exception.ProductNotFoundException;
-import com.kodilla.ecommercee.mapper.ProductMapper;
 import com.kodilla.ecommercee.repository.CartRepository;
 import com.kodilla.ecommercee.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +17,9 @@ import java.util.List;
 @Transactional
 public class CartService {
     private final CartRepository cartRepository;
-    private final ProductMapper productMapper;
     private final ProductRepository productRepository;
+
+
     public Cart createCart(Cart cart) {
         return cartRepository.save(cart);
     }
