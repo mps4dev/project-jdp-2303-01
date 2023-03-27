@@ -7,6 +7,10 @@ import com.kodilla.ecommercee.exception.ProductNotFoundException;
 import com.kodilla.ecommercee.mapper.ProductMapper;
 import com.kodilla.ecommercee.repository.CartRepository;
 import com.kodilla.ecommercee.repository.ProductRepository;
+import com.kodilla.ecommercee.domain.dto.ProductDTO;
+import com.kodilla.ecommercee.exception.CartNotFoundException;
+import com.kodilla.ecommercee.mapper.ProductMapper;
+import com.kodilla.ecommercee.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +23,9 @@ import java.util.List;
 public class CartService {
     private final CartRepository cartRepository;
     private final ProductMapper productMapper;
+
     private final ProductRepository productRepository;
+
     public Cart createCart(Cart cart) {
         return cartRepository.save(cart);
     }
@@ -39,6 +45,7 @@ public class CartService {
         }
         cartRepository.save(cart);
     }
+
 
     public Cart addProductToCart(long cartId, long porductId)throws CartNotFoundException, ProductNotFoundException {
         Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);

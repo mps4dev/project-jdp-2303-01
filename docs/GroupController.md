@@ -1,3 +1,4 @@
+
 # Group Controller endpoints
 
 
@@ -82,4 +83,5 @@ empty **JSON**
 
 ### Returns:
 **JSON** with updated group
+
 
