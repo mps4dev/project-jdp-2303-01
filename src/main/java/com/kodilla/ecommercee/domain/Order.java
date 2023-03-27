@@ -35,6 +35,6 @@ public class Order {
         this.orderId = orderId;
         this.cart = cart;
         this.user = user;
-        this.orderDate= LocalDateTime.now();
+        this.orderDate = LocalDateTime.now();
     }
 }
