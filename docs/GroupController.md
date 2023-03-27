@@ -1,4 +1,4 @@
-# Product Controller endpoints
+# Group Controller endpoints
 
 
 
@@ -29,14 +29,23 @@ Example:
 `GET /v1/groups/{{groupId}}` where {groupId} must be provided
 
 ```
-http://localhost:8080/v1/groups/1
+http://localhost:8080/v1/groups/44
 ```
 
 ### Body:
 empty
 
 ### Returns:
-**JSON** with group of given ID
+```
+]
+    {
+        "groupId": 44,
+        "name": "group2",
+        "products": []
+    }
+]
+```
+
 
 ## 3. Creating new group
 
@@ -55,7 +64,7 @@ Example:
 ### Returns:
 empty **JSON**
 
-## 4. Updating gropus
+## 4. Updating group
 
 ### HTTP Request:
 `PUT /v1/groups`
