@@ -10,6 +10,7 @@ import com.kodilla.ecommercee.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,34 +24,36 @@ public class CartController {
     private final OrderService orderService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('user')")
     public ResponseEntity<Void> createCart(CartDTO cartDto) {
         Cart creatCart = cartMapper.mapToCart(cartDto);
         cartService.createCart(creatCart);
         return ResponseEntity.ok().build();
     }
 
-
     @GetMapping(value = "{cartId}")
+    @PreAuthorize("hasRole('user')")
     public ResponseEntity<CartDTO> getCartById(@PathVariable long cartId) throws CartNotFoundException {
         Cart cart = cartService.getCartById(cartId);
         return ResponseEntity.ok(cartMapper.mapToCartDTO(cart));
     }
 
-
     @PutMapping(value = "/{cartId}")
+    @PreAuthorize("hasRole('user')")
     public ResponseEntity<CartDTO> updateProductInCart(@PathVariable long cartId,@RequestBody ProductDTO productDTO) throws CartNotFoundException {
         Cart cartWitProduct = cartService.addProductToCart(cartId,productDTO);
         return ResponseEntity.ok(cartMapper.mapToCartDTO(cartWitProduct));
     }
 
-
     @DeleteMapping(value = "/{cartId}")
+    @PreAuthorize("hasRole('user')")
     public ResponseEntity<Void> deleteProductFromCart(@PathVariable long cartId, @RequestParam long productId) throws CartNotFoundException {
         cartService.removeFromCart(cartId, productId);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping(value = "/{cartId}")
+    @PreAuthorize("hasRole('user')")
     public ResponseEntity<Void> createOrderFromCart(@PathVariable long cartId) {
         orderService.createOrderBasedOnCart(cartId);
         return ResponseEntity.ok().build();
