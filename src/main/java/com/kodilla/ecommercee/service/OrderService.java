@@ -39,6 +39,7 @@ public class OrderService {
         if (order.isPresent()){
         orderRepository.deleteById(orderId);
         }else {
+            System.out.println("Order with  Id " + orderId+ " not found" );
             throw new OrderNotFoundException();
         }
     }
@@ -51,6 +52,7 @@ public class OrderService {
         Order order = new Order(null, cart, user);
         orderRepository.save(order);
         }else {
+            System.out.println("Cart with  Id " + cartId+ " not found" );
             throw new CartNotFoundException();
         }
     }

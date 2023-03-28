@@ -27,18 +27,28 @@ public class UserService {
     }
 
     public void blockUser(final long userId) throws UserNotFoundException {
-        User foundUser = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
+        if(userRepository.existsById(userId)){
+        User foundUser = userRepository.findById(userId).get();
         foundUser.setBlocked(true);
         userRepository.save(foundUser);
+        }else{
+            System.out.println("User with ID "+ userId + " not found");
+            throw new UserNotFoundException();
+        }
     }
 
     public UserKeyDTO generateKey(final long userId) throws UserNotFoundException {
-        User user = userRepository.findById(userId).orElseThrow(UserNotFoundException::new);
+        if (userRepository.existsById(userId)){
+        User user = userRepository.findById(userId).get();
         Random random = new Random();
         UserKey key = new UserKey(random.nextLong(), Instant.now().plus(Duration.ofHours(1)));
         user.setUserKey(key);
         userRepository.save(user);
         return userKeyMapper.mapToUserKeyDTO(user.getUserKey());
+        }else{
+            System.out.println("User with ID "+ userId + " not found");
+            throw new UserNotFoundException();
+        }
     }
 
     public List<User> showUsers() {

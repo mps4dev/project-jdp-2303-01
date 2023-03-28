@@ -21,7 +21,12 @@ public class ProductService {
     }
 
     public Product showProduct(final long productId) throws ProductNotFoundException {
-        return productRepository.findById(productId).orElseThrow(ProductNotFoundException::new);
+        if (productRepository.existsById(productId)){
+        return productRepository.findById(productId).get();
+        }else {
+            System.out.println("Product with  Id " + productId+ " not found" );
+            throw new ProductNotFoundException();
+        }
     }
 
     public Product saveProduct(final Product product) {
@@ -33,8 +38,10 @@ public class ProductService {
         if (product.isPresent()){
       productRepository.deleteById(productId);
         }else {
+            System.out.println("Product with  Id " + productId+ " not found" );
             throw new ProductNotFoundException();
         }
+
     }
 
 }
