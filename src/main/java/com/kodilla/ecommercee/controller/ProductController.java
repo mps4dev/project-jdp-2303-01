@@ -2,7 +2,7 @@ package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.dto.ProductDTO;
-import com.kodilla.ecommercee.exception.OrderNotFoundException;
+import com.kodilla.ecommercee.exception.ProductNotFoundException;
 import com.kodilla.ecommercee.mapper.ProductMapper;
 import com.kodilla.ecommercee.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +27,7 @@ public class ProductController {
     }
 
     @GetMapping(value = "{productId}")
-    public ResponseEntity<ProductDTO> getProduct(@PathVariable long productId) throws OrderNotFoundException {
+    public ResponseEntity<ProductDTO> getProduct(@PathVariable long productId) throws ProductNotFoundException {
         Product foundProduct = productService.showProduct(productId);
         return ResponseEntity.ok(productMapper.mapToProductDTO(foundProduct));
     }
@@ -47,7 +47,7 @@ public class ProductController {
     }
 
     @DeleteMapping(value = "{productId}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable long productId) {
+    public ResponseEntity<Void> deleteProduct(@PathVariable long productId) throws ProductNotFoundException {
         productService.deleteProduct(productId);
         return ResponseEntity.ok().build();
     }

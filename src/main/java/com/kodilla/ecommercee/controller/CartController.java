@@ -2,8 +2,8 @@ package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.dto.CartDTO;
-import com.kodilla.ecommercee.domain.dto.ProductDTO;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
+import com.kodilla.ecommercee.exception.ProductNotFoundException;
 import com.kodilla.ecommercee.mapper.CartMapper;
 import com.kodilla.ecommercee.service.CartService;
 import com.kodilla.ecommercee.service.OrderService;
@@ -38,20 +38,20 @@ public class CartController {
 
 
     @PutMapping(value = "/{cartId}")
-    public ResponseEntity<CartDTO> updateProductInCart(@PathVariable long cartId,@RequestBody ProductDTO productDTO) throws CartNotFoundException {
-        Cart cartWitProduct = cartService.addProductToCart(cartId,productDTO);
+    public ResponseEntity<CartDTO> updateProductInCart(@PathVariable long cartId,@RequestParam long productId) throws CartNotFoundException, ProductNotFoundException {
+        Cart cartWitProduct = cartService.addProductToCart(cartId,productId);
         return ResponseEntity.ok(cartMapper.mapToCartDTO(cartWitProduct));
     }
 
 
     @DeleteMapping(value = "/{cartId}")
-    public ResponseEntity<Void> deleteProductFromCart(@PathVariable long cartId, @RequestParam long productId) throws CartNotFoundException {
+    public ResponseEntity<Void> deleteProductFromCart(@PathVariable long cartId, @RequestParam long productId) throws CartNotFoundException,ProductNotFoundException {
         cartService.removeFromCart(cartId, productId);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping(value = "/{cartId}")
-    public ResponseEntity<Void> createOrderFromCart(@PathVariable long cartId) {
+    public ResponseEntity<Void> createOrderFromCart(@PathVariable long cartId)throws CartNotFoundException {
         orderService.createOrderBasedOnCart(cartId);
         return ResponseEntity.ok().build();
     }

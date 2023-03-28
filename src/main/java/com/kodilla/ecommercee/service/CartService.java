@@ -2,10 +2,11 @@ package com.kodilla.ecommercee.service;
 
 import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Product;
-import com.kodilla.ecommercee.domain.dto.ProductDTO;
+
 import com.kodilla.ecommercee.exception.CartNotFoundException;
-import com.kodilla.ecommercee.mapper.ProductMapper;
+import com.kodilla.ecommercee.exception.ProductNotFoundException;
 import com.kodilla.ecommercee.repository.CartRepository;
+import com.kodilla.ecommercee.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,17 +18,25 @@ import java.util.List;
 @Transactional
 public class CartService {
     private final CartRepository cartRepository;
-    private final ProductMapper productMapper;
+    private final ProductRepository productRepository;
+
+
     public Cart createCart(Cart cart) {
         return cartRepository.save(cart);
     }
 
     public Cart getCartById(final long cartId) throws CartNotFoundException {
+        if(cartRepository.existsById(cartId)){
         return cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
+        }else{
+            System.out.println("Cart with  Id " + cartId+ " not found" );
+            throw new CartNotFoundException();
+        }
     }
 
-    public void removeFromCart(long cartId, long productId) throws CartNotFoundException {
-        Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
+    public void removeFromCart(long cartId, long productId) throws CartNotFoundException,ProductNotFoundException {
+        if (cartRepository.existsById(cartId) && productRepository.existsById(productId)){
+        Cart cart = cartRepository.findById(cartId).get();
         List<Product> products = cart.getProducts();
         for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getProductId() == productId) {
@@ -36,13 +45,31 @@ public class CartService {
             }
         }
         cartRepository.save(cart);
+        }else if (!cartRepository.existsById(cartId)){
+            System.out.println("Cart with  Id " + cartId+ " not found" );
+            throw new CartNotFoundException();
+        }else if (!productRepository.existsById(productId)){
+            System.out.println("Product with  Id " + productId+ " not found" );
+            throw new ProductNotFoundException();
+        }
     }
 
-    public Cart addProductToCart(long cartId, ProductDTO productDTO)throws CartNotFoundException{
-        Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
-        Product productfromDTO = productMapper.mapToProduct(productDTO);
-        cart.getProducts().add(productfromDTO);
+
+    public Cart addProductToCart(long cartId, long porductId)throws CartNotFoundException, ProductNotFoundException {
+
+        if (cartRepository.existsById(cartId) && productRepository.existsById(porductId)){
+            Cart cart = cartRepository.findById(cartId).get();
+            Product product = productRepository.findById(porductId).get();
+        cart.getProducts().add(product);
         return cartRepository.save(cart);
+        }else if(!cartRepository.existsById(cartId)){
+            System.out.println("Cart with  Id " + cartId+ " not found" );
+            throw new CartNotFoundException();
+        } else if (!productRepository.existsById(porductId)) {
+            System.out.println("Product with  Id " + porductId+ " not found" );
+            throw new ProductNotFoundException();
+        }
+        return null;
     }
 }
 

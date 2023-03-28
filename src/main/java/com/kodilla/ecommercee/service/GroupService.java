@@ -20,7 +20,12 @@ public class GroupService {
     }
 
     public Group showGroup(Long groupId) throws GroupNotFoundException {
-        return groupRepository.findById(groupId).orElseThrow(GroupNotFoundException::new);
+        if (groupRepository.existsById(groupId)){
+        return groupRepository.findById(groupId).get();
+        }else{
+            System.out.println("Group with  Id " + groupId+ " not found" );
+            throw  new GroupNotFoundException();
+        }
     }
 
     public Group saveGroup(Group group) {
