@@ -8,9 +8,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class GlobalHttpErrorHandler extends ResponseEntityExceptionHandler {
 
-
-
-
     @ExceptionHandler(CartNotFoundException.class)
     public ResponseEntity<Object>handleCartNotFoundException(CartNotFoundException cartNotFoundException){
         return new ResponseEntity<>("Cart with given Id not found", HttpStatus.BAD_REQUEST);
@@ -34,6 +31,4 @@ public class GlobalHttpErrorHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object>handleUserNotFoundException(UserNotFoundException UserNotFoundException){
         return new ResponseEntity<>("User with given Id not found",HttpStatus.BAD_REQUEST);
     }
-
-
 }

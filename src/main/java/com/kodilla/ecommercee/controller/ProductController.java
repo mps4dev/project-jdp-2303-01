@@ -4,7 +4,6 @@ import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.dto.ProductDTO;
 import com.kodilla.ecommercee.exception.ProductNotFoundException;
 import com.kodilla.ecommercee.mapper.ProductMapper;
-import com.kodilla.ecommercee.repository.ProductRepository;
 import com.kodilla.ecommercee.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -19,7 +18,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
-    private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
     @GetMapping()
