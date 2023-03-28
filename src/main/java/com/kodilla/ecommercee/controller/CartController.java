@@ -4,7 +4,6 @@ import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.dto.CartDTO;
 import com.kodilla.ecommercee.exception.CartNotFoundException;
 import com.kodilla.ecommercee.exception.ProductNotFoundException;
-import com.kodilla.ecommercee.domain.dto.ProductDTO;
 import com.kodilla.ecommercee.mapper.CartMapper;
 import com.kodilla.ecommercee.service.CartService;
 import com.kodilla.ecommercee.service.OrderService;

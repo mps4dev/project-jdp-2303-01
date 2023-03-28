@@ -53,7 +53,7 @@ empty
 Example:
 ```
 {
-    "cartId": 1,
+    "cartId": 1, 
     "products": [
         {
             "productId": 1,
