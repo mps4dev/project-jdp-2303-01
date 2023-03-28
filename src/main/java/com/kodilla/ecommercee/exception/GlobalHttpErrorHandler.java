@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.exception;
 
+import com.kodilla.ecommercee.domain.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -7,6 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 @ControllerAdvice
 public class GlobalHttpErrorHandler extends ResponseEntityExceptionHandler {
+
+    private Product product;
+
 
     @ExceptionHandler(CartNotFoundException.class)
     public ResponseEntity<Object>handleCartNotFoundException(CartNotFoundException cartNotFoundException){

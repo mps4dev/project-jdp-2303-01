@@ -35,7 +35,7 @@ public class OrderController {
     }
 
     @DeleteMapping(value = "{orderId}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable long orderId) {
+    public ResponseEntity<Void> deleteOrder(@PathVariable long orderId)throws OrderNotFoundException {
         orderService.deleteOrder(orderId);
         return ResponseEntity.ok().build();
     }

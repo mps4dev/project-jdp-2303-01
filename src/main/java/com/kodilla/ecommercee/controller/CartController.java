@@ -51,7 +51,7 @@ public class CartController {
     }
 
     @PostMapping(value = "/{cartId}")
-    public ResponseEntity<Void> createOrderFromCart(@PathVariable long cartId) {
+    public ResponseEntity<Void> createOrderFromCart(@PathVariable long cartId)throws CartNotFoundException {
         orderService.createOrderBasedOnCart(cartId);
         return ResponseEntity.ok().build();
     }

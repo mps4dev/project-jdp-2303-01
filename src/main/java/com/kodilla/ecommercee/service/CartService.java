@@ -46,7 +46,6 @@ public class CartService {
         Cart cart = cartRepository.findById(cartId).orElseThrow(CartNotFoundException::new);
         Product product = productRepository.findById(porductId).orElseThrow(ProductNotFoundException::new);
         cart.getProducts().add(product);
-
         return cartRepository.save(cart);
     }
 }
