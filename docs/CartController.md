@@ -37,11 +37,11 @@ empty **JSON**
 # 3. Get Cart with given ID
 
 ### HTTP Request:
-`DELETE /v1/carts/{{cartId}}` where {cartId} must be provided with {productId}
+`GET /v1/carts/{{cartId}}` where {cartId} must be provided
 
 Example:
 ```
-http://localhost:8080/v1/carts/1?productId=3
+http://localhost:8080/v1/carts/1
 ```
 ### Body:
 empty
