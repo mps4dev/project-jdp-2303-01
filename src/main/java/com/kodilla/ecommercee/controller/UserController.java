@@ -1,11 +1,9 @@
 package com.kodilla.ecommercee.controller;
 
 
-import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.domain.dto.UserDTO;
 import com.kodilla.ecommercee.domain.dto.UserKeyDTO;
 import com.kodilla.ecommercee.exception.UserNotFoundException;
-import com.kodilla.ecommercee.mapper.UserMapper;
 import com.kodilla.ecommercee.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -20,12 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-    private final UserMapper userMapper;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> createUser(@RequestBody UserDTO userDTO) {
-        User user = userMapper.mapToUser(userDTO);
-        userService.saveUser(user);
+        userService.saveUser(userDTO);
         return ResponseEntity.ok().build();
     }
 
@@ -42,7 +38,6 @@ public class UserController {
 
     @GetMapping()
     public ResponseEntity<List<UserDTO>> getUsers() {
-        List<User> userList = userService.showUsers();
-        return ResponseEntity.ok(userMapper.mapToUserDTOList(userList));
+        return ResponseEntity.ok(userService.showUsers());
     }
 }

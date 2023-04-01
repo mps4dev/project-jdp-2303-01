@@ -5,7 +5,7 @@
 ## 1. Get all products
 
 ### HTTP Request:
-`GET /v1/products/`
+`GET /v1/products`
 
 ### Body:
 empty
@@ -40,7 +40,7 @@ Example:
 ## 2. Get product with given ID
 
 ### HTTP Request:
-`GET /v1/products/{{productId}}` where {productId} must be provided
+`GET /v1/products/{productId}` where {productId} must be provided
 
 ### Body:
 empty
@@ -62,7 +62,7 @@ Example:
 }
 ```
 
-**or** 500 Internal Server Error - if there is no product with such ID
+**or** Exception: "Product with given Id not found"
 
 ## 3. Creating new product
 
