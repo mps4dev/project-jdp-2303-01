@@ -137,4 +137,4 @@ empty
 ### Returns:
 empty **JSON**
 
-**or** 500 Internal Server Error - if there is no product with such ID
+**or** Exception - if there is no product with such ID

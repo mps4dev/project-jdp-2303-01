@@ -27,7 +27,7 @@ Example:
 ## 2. Get group with given ID
 
 ### HTTP Request:
-`GET /v1/groups/{{groupId}}` where {groupId} must be provided
+`GET /v1/groups/{groupId}` where {groupId} must be provided
 
 ```
 http://localhost:8080/v1/groups/44
@@ -78,7 +78,7 @@ empty **JSON**
         "groupId": 44,
         "name": "grouptest",
         "products": []
-    }
+ }
 ```
 
 ### Returns:
