@@ -9,6 +9,7 @@ Project Manager : Marcin Szuppe
 - Dominik Kulpowicz
 - Przemysław Siciński
 - Paweł Staszewski
+
   How to run application:
 1) Create mySQL database "kodilla_project" using port 3306
 2) Set up environmental variables for your user - more details in application.properties
